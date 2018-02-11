@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	
+	
+	<bean id="manageAction" class="qiye.action.ManageAction" scope="prototype">
+
+		<property name="userDao"><ref bean="userDao" /></property>
+		<property name="picDao"><ref bean="picDao" /></property>
+		<property name="qiyeDao"><ref bean="qiyeDao" /></property>
+		<property name="productDao"><ref bean="productDao" /></property>
+		<property name="xinwenDao"><ref bean="xinwenDao" /></property>
+		<property name="zhaopinDao"><ref bean="zhaopinDao" /></property>
+		<property name="messageDao"><ref bean="messageDao" /></property>
+		
+	</bean>
+	
+	
+	<bean id="indexAction" class="qiye.action.IndexAction" scope="prototype">
+
+		<property name="picDao"><ref bean="picDao" /></property>
+		<property name="qiyeDao"><ref bean="qiyeDao" /></property>
+		<property name="productDao"><ref bean="productDao" /></property>
+		<property name="xinwenDao"><ref bean="xinwenDao" /></property>
+		<property name="zhaopinDao"><ref bean="zhaopinDao" /></property>
+		<property name="messageDao"><ref bean="messageDao" /></property>
+		
+	</bean>
+	
+	
+	
+	
+	
+</beans>
