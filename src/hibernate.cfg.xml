@@ -33,15 +33,15 @@
 		
 		
 
-		<mapping class="qiye.model.User"/>
-		<mapping class="qiye.model.Pic"/>
-		<mapping class="qiye.model.Qiye"/>
-		<mapping class="qiye.model.Product"/>
+		<mapping class="com.myWebsit.bean.User"/>
+		<mapping class="com.myWebsit.bean.Pic"/>
+		<mapping class="com.myWebsit.bean.Qiye"/>
+		<mapping class="com.myWebsit.bean.Product"/>
 		
-		<mapping class="qiye.model.Xinwen"/>
-		<mapping class="qiye.model.Zhaopin"/>
+		<mapping class="com.myWebsit.bean.Xinwen"/>
+		<mapping class="com.myWebsit.bean.Zhaopin"/>
 		
-		<mapping class="qiye.model.Message"/>
+		<mapping class="com.myWebsit.bean.Message"/>
 		
 		
 		
