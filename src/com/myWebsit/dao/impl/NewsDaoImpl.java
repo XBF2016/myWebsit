@@ -40,7 +40,7 @@ public class NewsDaoImpl extends HibernateDaoSupport implements  NewsDao{
 
 	@SuppressWarnings("unchecked")
 	public News selectBean(String where) {
-		List<News> list = this.getHibernateTemplate().find("from Xinwen " +where);
+		List<News> list = this.getHibernateTemplate().find("from News " +where);
 		if(list.size()==0){
 			return null;
 		}
@@ -48,7 +48,7 @@ public class NewsDaoImpl extends HibernateDaoSupport implements  NewsDao{
 	}
 
 	public int selectBeanCount(String where) {
-		long count = (Long)this.getHibernateTemplate().find("select count(*) from Xinwen "+where).get(0);
+		long count = (Long)this.getHibernateTemplate().find("select count(*) from News "+where).get(0);
 		return (int)count;
 	}
 
@@ -56,7 +56,7 @@ public class NewsDaoImpl extends HibernateDaoSupport implements  NewsDao{
 	public List<News> selectBeanList(final int start,final int limit,final String where) {
 		return (List<News>)this.getHibernateTemplate().executeFind(new HibernateCallback() {
 			public Object doInHibernate(final Session session)throws HibernateException, SQLException {				
-				List<News> list = session.createQuery("from Xinwen "+where)
+				List<News> list = session.createQuery("from News "+where)
 				.setFirstResult(start)
 				.setMaxResults(limit)
 				.list();

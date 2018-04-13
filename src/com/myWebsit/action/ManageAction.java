@@ -191,17 +191,33 @@ public class ManageAction extends ActionSupport {
 	
 	private CompanyDao companyDao;
 
-	public CompanyDao getQiyeDao() {
+	
+	
+	
+	public CompanyDao getCompanyDao() {
 		return companyDao;
 	}
 
-	public void setQiyeDao(CompanyDao companyDao) {
+	public void setCompanyDao(CompanyDao companyDao) {
 		this.companyDao = companyDao;
 	}
-	
-	
-	
-	
+
+	public NewsDao getNewsDao() {
+		return newsDao;
+	}
+
+	public void setNewsDao(NewsDao newsDao) {
+		this.newsDao = newsDao;
+	}
+
+	public RecruitDao getRecruitDao() {
+		return recruitDao;
+	}
+
+	public void setRecruitDao(RecruitDao recruitDao) {
+		this.recruitDao = recruitDao;
+	}
+
 	//跳转到更新企业信息页面
 	public String qiyeupdate() {
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -215,26 +231,26 @@ public class ManageAction extends ActionSupport {
 //更新首页图片操作
 	public void qiyeupdate2() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		String chuanzhen = request.getParameter("chuanzhen");
-		String dianhua = request.getParameter("dianhua");
-		String dizhi = request.getParameter("dizhi");
-		String jianjie = request.getParameter("jianjie");
-		String lianxiren = request.getParameter("lianxiren");
-		String shouji = request.getParameter("shouji");
-		String youbian = request.getParameter("youbian");
-		String youxiang = request.getParameter("youxiang");
-		String mingchen = request.getParameter("mingchen");
+		String fax = request.getParameter("fax");
+		String tel = request.getParameter("tel");
+		String address = request.getParameter("address");
+		String info = request.getParameter("info");
+		String contact = request.getParameter("contact");
+		String phone = request.getParameter("phone");
+		String postcode = request.getParameter("postcode");
+		String mailbox = request.getParameter("mailbox");
+		String company_name = request.getParameter("company_name");
 
 		Company bean = companyDao.selectBean(" where id= "+ request.getParameter("id"));
-		bean.setChuanzhen(chuanzhen);
-		bean.setDianhua(dianhua);
-		bean.setDizhi(dizhi);
-		bean.setJianjie(jianjie);
-		bean.setLianxiren(lianxiren);
-		bean.setShouji(shouji);
-		bean.setYoubian(youbian);
-		bean.setYouxiang(youxiang);
-		bean.setMingchen(mingchen);
+		bean.setFax(fax);
+		bean.setTel(tel);
+		bean.setAddress(address);
+		bean.setInfo(info);
+		bean.setContact(contact);
+		bean.setPhone(phone);
+		bean.setPostcode(postcode);
+		bean.setMailbox(mailbox);
+		bean.setCompany_name(company_name);
 		if(uploadfile!=null){
 			String savaPath = ServletActionContext.getServletContext().getRealPath(
 			"/")
@@ -319,11 +335,11 @@ public class ManageAction extends ActionSupport {
 //添加产品操作
 	public void productadd2() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		String jieshao = request.getParameter("jieshao");
-		String pname = request.getParameter("pname");
+		String info = request.getParameter("info");
+		String product_name = request.getParameter("product_name");
 
 		Product bean = new Product();
-		bean.setJieshao(jieshao);
+		bean.setInfo(info);
 		if(uploadfile!=null){
 			String savaPath = ServletActionContext.getServletContext().getRealPath(
 			"/")
@@ -336,9 +352,9 @@ public class ManageAction extends ActionSupport {
 			Util.copyFile(uploadfile, file1);
 			bean.setPath(path);
 		}
-		bean.setPname(pname);
-		bean.setTuijian("未推荐");
-		bean.setCreatetime(Util.getTime());
+		bean.setProduct_name(product_name);
+		bean.setIs_recommend("未推荐");
+		bean.setCreated_time(Util.getTime());
 		
 		productDao.insertBean(bean);
 		HttpServletResponse response = ServletActionContext.getResponse();
@@ -362,11 +378,11 @@ public class ManageAction extends ActionSupport {
 //更新产品操作
 	public void productupdate2() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		String jieshao = request.getParameter("jieshao");
-		String pname = request.getParameter("pname");
+		String info = request.getParameter("info");
+		String product_name = request.getParameter("product_name");
 		Product bean = productDao.selectBean(" where id= "
 				+ request.getParameter("id"));
-		bean.setJieshao(jieshao);
+		bean.setInfo(info);
 		if(uploadfile!=null){
 			String savaPath = ServletActionContext.getServletContext().getRealPath(
 			"/")
@@ -379,7 +395,7 @@ public class ManageAction extends ActionSupport {
 			Util.copyFile(uploadfile, file1);
 			bean.setPath(path);
 		}
-		bean.setPname(pname);
+		bean.setProduct_name(product_name);
 		productDao.updateBean(bean);
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("gbk");response.setContentType("text/html; charset=gbk");
@@ -422,7 +438,7 @@ public class ManageAction extends ActionSupport {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Product bean = productDao.selectBean(" where id= "
 				+ request.getParameter("id"));
-		bean.setTuijian("推荐");
+		bean.setIs_recommend("推荐");
 		productDao.updateBean(bean);
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("gbk");response.setContentType("text/html; charset=gbk");
@@ -437,7 +453,7 @@ public class ManageAction extends ActionSupport {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Product bean = productDao.selectBean(" where id= "
 				+ request.getParameter("id"));
-		bean.setTuijian("未推荐");
+		bean.setIs_recommend("未推荐");
 		productDao.updateBean(bean);
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("gbk");response.setContentType("text/html; charset=gbk");
@@ -450,13 +466,6 @@ public class ManageAction extends ActionSupport {
 	
 	private NewsDao newsDao;
 
-	public NewsDao getXinwenDao() {
-		return newsDao;
-	}
-
-	public void setXinwenDao(NewsDao newsDao) {
-		this.newsDao = newsDao;
-	}
 	
 	
 	//新闻列表
@@ -508,15 +517,15 @@ public class ManageAction extends ActionSupport {
 //添加新闻操作
 	public void xinwenadd2() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		String biaoti = request.getParameter("biaoti");
-		String neirong = request.getParameter("content1");
+		String title = request.getParameter("title");
+		String content1 = request.getParameter("content1");
 
 		News bean = new News();
-		bean.setBiaoti(biaoti);
-		bean.setNeirong(neirong);
+		bean.setTitle(title);
+		bean.setContent(content1);
 		
-		bean.setTuijian("未推荐");
-		bean.setCreatetime(Util.getTime());
+		bean.setIs_recommend("未推荐");
+		bean.setCreated_time(Util.getTime());
 		
 		newsDao.insertBean(bean);
 		HttpServletResponse response = ServletActionContext.getResponse();
@@ -540,12 +549,12 @@ public class ManageAction extends ActionSupport {
 //更新新闻操作
 	public void xinwenupdate2() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		String biaoti = request.getParameter("biaoti");
-		String neirong = request.getParameter("content1");
+		String title = request.getParameter("title");
+		String content1 = request.getParameter("content1");
 		News bean = newsDao.selectBean(" where id= "
 				+ request.getParameter("id"));
-		bean.setBiaoti(biaoti);
-		bean.setNeirong(neirong);
+		bean.setTitle(title);
+		bean.setContent(content1);
 		newsDao.updateBean(bean);
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("gbk");response.setContentType("text/html; charset=gbk");
@@ -588,7 +597,7 @@ public class ManageAction extends ActionSupport {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		News bean = newsDao.selectBean(" where id= "
 				+ request.getParameter("id"));
-		bean.setTuijian("推荐");
+		bean.setIs_recommend("推荐");
 		newsDao.updateBean(bean);
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("gbk");response.setContentType("text/html; charset=gbk");
@@ -603,7 +612,7 @@ public class ManageAction extends ActionSupport {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		News bean = newsDao.selectBean(" where id= "
 				+ request.getParameter("id"));
-		bean.setTuijian("未推荐");
+		bean.setIs_recommend("未推荐");
 		newsDao.updateBean(bean);
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("gbk");response.setContentType("text/html; charset=gbk");
@@ -616,13 +625,6 @@ public class ManageAction extends ActionSupport {
 	
 	private RecruitDao recruitDao;
 
-	public RecruitDao getZhaopinDao() {
-		return recruitDao;
-	}
-
-	public void setZhaopinDao(RecruitDao recruitDao) {
-		this.recruitDao = recruitDao;
-	}
 	
 	
 	//招聘列表
@@ -674,15 +676,15 @@ public class ManageAction extends ActionSupport {
 //添加招聘操作
 	public void zhaopinadd2() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		String jieshao = request.getParameter("jieshao");
-		String zhiwei = request.getParameter("zhiwei");
+		String info = request.getParameter("info");
+		String position = request.getParameter("position");
 
 		Recruit bean = new Recruit();
-		bean.setJieshao(jieshao);
-		bean.setZhiwei(zhiwei);
+		bean.setInfo(info);
+		bean.setPosition(position);
 		
-		bean.setTuijian("未推荐");
-		bean.setCreatetime(Util.getTime());
+		bean.setIs_recommend("未推荐");
+		bean.setCreated_time(Util.getTime());
 		
 		recruitDao.insertBean(bean);
 		HttpServletResponse response = ServletActionContext.getResponse();
@@ -706,12 +708,12 @@ public class ManageAction extends ActionSupport {
 //更新招聘操作
 	public void zhaopinupdate2() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		String jieshao = request.getParameter("jieshao");
-		String zhiwei = request.getParameter("zhiwei");
+		String info = request.getParameter("info");
+		String position = request.getParameter("position");
 		Recruit bean = recruitDao.selectBean(" where id= "
 				+ request.getParameter("id"));
-		bean.setJieshao(jieshao);
-		bean.setZhiwei(zhiwei);
+		bean.setInfo(info);
+		bean.setPosition(position);
 		recruitDao.updateBean(bean);
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("gbk");response.setContentType("text/html; charset=gbk");
@@ -754,7 +756,7 @@ public class ManageAction extends ActionSupport {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Recruit bean = recruitDao.selectBean(" where id= "
 				+ request.getParameter("id"));
-		bean.setTuijian("推荐");
+		bean.setIs_recommend("推荐");
 		recruitDao.updateBean(bean);
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("gbk");response.setContentType("text/html; charset=gbk");
@@ -769,7 +771,7 @@ public class ManageAction extends ActionSupport {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Recruit bean = recruitDao.selectBean(" where id= "
 				+ request.getParameter("id"));
-		bean.setTuijian("未推荐");
+		bean.setIs_recommend("未推荐");
 		recruitDao.updateBean(bean);
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("gbk");response.setContentType("text/html; charset=gbk");

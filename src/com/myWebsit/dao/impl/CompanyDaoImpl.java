@@ -40,7 +40,7 @@ public class CompanyDaoImpl extends HibernateDaoSupport implements  CompanyDao{
 
 	@SuppressWarnings("unchecked")
 	public Company selectBean(String where) {
-		List<Company> list = this.getHibernateTemplate().find("from Qiye " +where);
+		List<Company> list = this.getHibernateTemplate().find("from Company " +where);
 		if(list.size()==0){
 			return null;
 		}
@@ -48,7 +48,7 @@ public class CompanyDaoImpl extends HibernateDaoSupport implements  CompanyDao{
 	}
 
 	public int selectBeanCount(String where) {
-		long count = (Long)this.getHibernateTemplate().find("select count(*) from Qiye "+where).get(0);
+		long count = (Long)this.getHibernateTemplate().find("select count(*) from Company "+where).get(0);
 		return (int)count;
 	}
 
@@ -56,7 +56,7 @@ public class CompanyDaoImpl extends HibernateDaoSupport implements  CompanyDao{
 	public List<Company> selectBeanList(final int start,final int limit,final String where) {
 		return (List<Company>)this.getHibernateTemplate().executeFind(new HibernateCallback() {
 			public Object doInHibernate(final Session session)throws HibernateException, SQLException {				
-				List<Company> list = session.createQuery("from Qiye "+where)
+				List<Company> list = session.createQuery("from Company "+where)
 				.setFirstResult(start)
 				.setMaxResults(limit)
 				.list();

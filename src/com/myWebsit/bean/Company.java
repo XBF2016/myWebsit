@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 //企业信息
 @Entity
-@Table(name="t_Qiye")
+@Table(name="t_company")
 public class Company {
 
 	@Id
@@ -15,24 +15,24 @@ public class Company {
 	
 	private String logo;//企业logo
 	
-	@Column(name="jianjie", columnDefinition="TEXT")
-	private String jianjie;//企业简介
+	@Column(name="info", columnDefinition="TEXT")
+	private String info;//企业简介
 	
-	private String dizhi;//地址
+	private String address;//地址
 	
-	private String youbian;//邮编
+	private String postcode;//邮编
 	
-	private String lianxiren;//联系人
+	private String contact;//联系人
 	
-	private String dianhua;//电话
+	private String tel;//电话
 	
-	private String chuanzhen;//传真
+	private String fax;//传真
 	
-	private String shouji;//手机
+	private String phone;//手机
 	
-	private String youxiang;//邮箱
+	private String mailbox;//邮箱
 	
-	private String mingchen;//企业名称
+	private String company_name;//企业名称
 
 	public int getId() {
 		return id;
@@ -50,85 +50,77 @@ public class Company {
 		this.logo = logo;
 	}
 
-	public String getJianjie() {
-		return jianjie;
+	public String getInfo() {
+		return info;
 	}
 
-	public void setJianjie(String jianjie) {
-		this.jianjie = jianjie;
+	public void setInfo(String info) {
+		this.info = info;
 	}
 
-	public String getDizhi() {
-		return dizhi;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setDizhi(String dizhi) {
-		this.dizhi = dizhi;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public String getYoubian() {
-		return youbian;
+	public String getPostcode() {
+		return postcode;
 	}
 
-	public void setYoubian(String youbian) {
-		this.youbian = youbian;
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
 	}
 
-	public String getLianxiren() {
-		return lianxiren;
+	public String getContact() {
+		return contact;
 	}
 
-	public void setLianxiren(String lianxiren) {
-		this.lianxiren = lianxiren;
+	public void setContact(String contact) {
+		this.contact = contact;
 	}
 
-	public String getDianhua() {
-		return dianhua;
+	public String getTel() {
+		return tel;
 	}
 
-	public void setDianhua(String dianhua) {
-		this.dianhua = dianhua;
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 
-	public String getChuanzhen() {
-		return chuanzhen;
+	public String getFax() {
+		return fax;
 	}
 
-	public void setChuanzhen(String chuanzhen) {
-		this.chuanzhen = chuanzhen;
+	public void setFax(String fax) {
+		this.fax = fax;
 	}
 
-	public String getShouji() {
-		return shouji;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setShouji(String shouji) {
-		this.shouji = shouji;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
-	public String getYouxiang() {
-		return youxiang;
+	public String getMailbox() {
+		return mailbox;
 	}
 
-	public void setYouxiang(String youxiang) {
-		this.youxiang = youxiang;
+	public void setMailbox(String mailbox) {
+		this.mailbox = mailbox;
 	}
 
-	public String getMingchen() {
-		return mingchen;
+	public String getCompany_name() {
+		return company_name;
 	}
 
-	public void setMingchen(String mingchen) {
-		this.mingchen = mingchen;
+	public void setCompany_name(String company_name) {
+		this.company_name = company_name;
 	}
-	
-	
-	
-	
-	
 
-	
-	
-	
 	
 }

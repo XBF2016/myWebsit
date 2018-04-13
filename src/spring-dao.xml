@@ -9,32 +9,32 @@
            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
 	
 	<!--           daos          -->
-	<bean id="userDao" class="qiye.dao.impl.UserDaoImpl" >
+	<bean id="userDao" class="com.myWebsit.dao.impl.UserDaoImpl" >
 		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
 	</bean>
 	
 	
-	<bean id="picDao" class="qiye.dao.impl.PicDaoImpl" >
+	<bean id="picDao" class="com.myWebsit.dao.impl.PicDaoImpl" >
 		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
 	</bean>
 	
-	<bean id="qiyeDao" class="qiye.dao.impl.QiyeDaoImpl" >
+	<bean id="companyDao" class="com.myWebsit.dao.impl.CompanyDaoImpl" >
 		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
 	</bean>
 	
-	<bean id="productDao" class="qiye.dao.impl.ProductDaoImpl" >
+	<bean id="productDao" class="com.myWebsit.dao.impl.ProductDaoImpl" >
 		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
 	</bean>
 	
-	<bean id="xinwenDao" class="qiye.dao.impl.XinwenDaoImpl" >
+	<bean id="newsDao" class="com.myWebsit.dao.impl.NewsDaoImpl" >
 		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
 	</bean>
 	
-	<bean id="zhaopinDao" class="qiye.dao.impl.ZhaopinDaoImpl" >
+	<bean id="zhaopinDao" class="com.myWebsit.dao.impl.RecruitDaoImpl" >
 		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
 	</bean>
 	
-	<bean id="messageDao" class="qiye.dao.impl.MessageDaoImpl" >
+	<bean id="messageDao" class="com.myWebsit.dao.impl.MessageDaoImpl" >
 		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
 	</bean>
 	

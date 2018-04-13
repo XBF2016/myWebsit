@@ -20,7 +20,7 @@ CREATE TABLE `t_message` (
   `time` varchar(255) default NULL COMMENT '时间',
   `name` varchar(255) default NULL COMMENT '姓名',
   `postcode` varchar(255) default NULL COMMENT '邮编',
-  `mail` varchar(255) default NULL COMMENT '邮件',
+  `email` varchar(255) default NULL COMMENT '邮件',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

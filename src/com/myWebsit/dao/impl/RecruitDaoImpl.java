@@ -40,7 +40,7 @@ public class RecruitDaoImpl extends HibernateDaoSupport implements  RecruitDao{
 
 	@SuppressWarnings("unchecked")
 	public Recruit selectBean(String where) {
-		List<Recruit> list = this.getHibernateTemplate().find("from Zhaopin " +where);
+		List<Recruit> list = this.getHibernateTemplate().find("from Recruit " +where);
 		if(list.size()==0){
 			return null;
 		}
@@ -48,7 +48,7 @@ public class RecruitDaoImpl extends HibernateDaoSupport implements  RecruitDao{
 	}
 
 	public int selectBeanCount(String where) {
-		long count = (Long)this.getHibernateTemplate().find("select count(*) from Zhaopin "+where).get(0);
+		long count = (Long)this.getHibernateTemplate().find("select count(*) from Recruit "+where).get(0);
 		return (int)count;
 	}
 
@@ -56,7 +56,7 @@ public class RecruitDaoImpl extends HibernateDaoSupport implements  RecruitDao{
 	public List<Recruit> selectBeanList(final int start,final int limit,final String where) {
 		return (List<Recruit>)this.getHibernateTemplate().executeFind(new HibernateCallback() {
 			public Object doInHibernate(final Session session)throws HibernateException, SQLException {				
-				List<Recruit> list = session.createQuery("from Zhaopin "+where)
+				List<Recruit> list = session.createQuery("from Recruit "+where)
 				.setFirstResult(start)
 				.setMaxResults(limit)
 				.list();

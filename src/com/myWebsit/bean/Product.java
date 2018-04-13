@@ -12,23 +12,16 @@ public class Product {
 	@GeneratedValue
 	private int id;
 	
-	private String pname;//产品名
+	private String product_name;//产品名
 	
 	private String path;//产品图片
 	
-	private String jieshao;//产品介绍
+	private String info;//产品介绍
 	
-	private String tuijian;//是否推荐
+	private String is_recommend;//是否推荐
 	
-	private String createtime;//添加时间
+	private String created_time;//添加时间
 
-	public String getCreatetime() {
-		return createtime;
-	}
-
-	public void setCreatetime(String createtime) {
-		this.createtime = createtime;
-	}
 
 	public int getId() {
 		return id;
@@ -36,14 +29,6 @@ public class Product {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getPname() {
-		return pname;
-	}
-
-	public void setPname(String pname) {
-		this.pname = pname;
 	}
 
 	public String getPath() {
@@ -54,21 +39,39 @@ public class Product {
 		this.path = path;
 	}
 
-	public String getJieshao() {
-		return jieshao;
+	public String getProduct_name() {
+		return product_name;
 	}
 
-	public void setJieshao(String jieshao) {
-		this.jieshao = jieshao;
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
 	}
 
-	public String getTuijian() {
-		return tuijian;
+	public String getInfo() {
+		return info;
 	}
 
-	public void setTuijian(String tuijian) {
-		this.tuijian = tuijian;
+	public void setInfo(String info) {
+		this.info = info;
 	}
+
+	public String getIs_recommend() {
+		return is_recommend;
+	}
+
+	public void setIs_recommend(String is_recommend) {
+		this.is_recommend = is_recommend;
+	}
+
+	public String getCreated_time() {
+		return created_time;
+	}
+
+	public void setCreated_time(String created_time) {
+		this.created_time = created_time;
+	}
+
+
 	
 	
 	

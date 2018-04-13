@@ -6,21 +6,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 //新闻
 @Entity
-@Table(name="t_Xinwen")
+@Table(name="t_News")
 public class News {
 
 	@Id
 	@GeneratedValue
 	private int id;
 	
-	private String biaoti;//标题
+	private String title;//标题
 	
-	@Column(name="neirong", columnDefinition="TEXT")
-	private String neirong;//内容
+	@Column(name="content", columnDefinition="TEXT")
+	private String content;//内容
 	
-	private String createtime;//添加时间
+	private String created_time;//添加时间
 	
-	private String tuijian;//推荐
+	private String is_recommend;//推荐
 
 	public int getId() {
 		return id;
@@ -30,42 +30,36 @@ public class News {
 		this.id = id;
 	}
 
-	public String getBiaoti() {
-		return biaoti;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setBiaoti(String biaoti) {
-		this.biaoti = biaoti;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
-	public String getNeirong() {
-		return neirong;
+	public String getContent() {
+		return content;
 	}
 
-	public void setNeirong(String neirong) {
-		this.neirong = neirong;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
-	public String getCreatetime() {
-		return createtime;
+	public String getCreated_time() {
+		return created_time;
 	}
 
-	public void setCreatetime(String createtime) {
-		this.createtime = createtime;
+	public void setCreated_time(String created_time) {
+		this.created_time = created_time;
 	}
 
-	public String getTuijian() {
-		return tuijian;
+	public String getIs_recommend() {
+		return is_recommend;
 	}
 
-	public void setTuijian(String tuijian) {
-		this.tuijian = tuijian;
+	public void setIs_recommend(String is_recommend) {
+		this.is_recommend = is_recommend;
 	}
 
-	
-	
-	
-	
-	
-	
 }

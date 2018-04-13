@@ -64,13 +64,6 @@ public class IndexAction extends ActionSupport {
 		this.picDao = picDao;
 	}
 
-	public CompanyDao getQiyeDao() {
-		return companyDao;
-	}
-
-	public void setQiyeDao(CompanyDao companyDao) {
-		this.companyDao = companyDao;
-	}
 
 	
 	private ProductDao productDao;
@@ -85,21 +78,30 @@ public class IndexAction extends ActionSupport {
 
 	private NewsDao newsDao;
 	
-	public NewsDao getXinwenDao() {
+	private RecruitDao recruitDao;
+
+
+	public CompanyDao getCompanyDao() {
+		return companyDao;
+	}
+
+	public void setCompanyDao(CompanyDao companyDao) {
+		this.companyDao = companyDao;
+	}
+
+	public NewsDao getNewsDao() {
 		return newsDao;
 	}
 
-	public void setXinwenDao(NewsDao newsDao) {
+	public void setNewsDao(NewsDao newsDao) {
 		this.newsDao = newsDao;
 	}
-	
-	private RecruitDao recruitDao;
 
-	public RecruitDao getZhaopinDao() {
+	public RecruitDao getRecruitDao() {
 		return recruitDao;
 	}
 
-	public void setZhaopinDao(RecruitDao recruitDao) {
+	public void setRecruitDao(RecruitDao recruitDao) {
 		this.recruitDao = recruitDao;
 	}
 
@@ -353,24 +355,24 @@ public class IndexAction extends ActionSupport {
 //添加留言反馈操作
 	public void messageadd2() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		String chuanzhen = request.getParameter("Guest_FAX");
-		String dianhua = request.getParameter("Guest_TEL");
-		String dizhi = request.getParameter("Guest_ADD");
-		String neirong = request.getParameter("Content");
-		String xingming = request.getParameter("Guest_Name");
-		String youbian = request.getParameter("Guest_ZIP");
-		String youjianl = request.getParameter("Guest_Email");
+		String fax = request.getParameter("Guest_FAX");
+		String tel = request.getParameter("Guest_TEL");
+		String address = request.getParameter("Guest_ADD");
+		String content = request.getParameter("Content");
+		String name = request.getParameter("Guest_Name");
+		String postcode = request.getParameter("Guest_ZIP");
+		String mailbox = request.getParameter("Guest_Email");
 
 		Message bean = new Message();
 		
-		bean.setChuanzhen(chuanzhen);
-		bean.setDianhua(dianhua);
-		bean.setDizhi(dizhi);
-		bean.setNeirong(neirong);
-		bean.setShijian(Util.getTime());
-		bean.setXingming(xingming);
-		bean.setYoubian(youbian);
-		bean.setYoujianl(youjianl);
+		bean.setFax(fax);
+		bean.setTel(tel);
+		bean.setAddress(address);
+		bean.setContent(content);
+		bean.setTime(Util.getTime());
+		bean.setName(name);
+		bean.setPostcode(postcode);
+		bean.setMailbox(mailbox);
 		
 		
 		messageDao.insertBean(bean);

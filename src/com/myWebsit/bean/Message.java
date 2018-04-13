@@ -13,22 +13,22 @@ public class Message {
 	@GeneratedValue
 	private int id;
 	
-	private String xingming;//姓名
+	private String name;//姓名
 	
-	private String youjianl;//邮件地址
+	private String mailbox;//邮件地址
 	
-	private String dianhua;//电话
+	private String tel;//电话
 	
-	private String chuanzhen;//传真
+	private String fax;//传真
 	
-	private String dizhi;//地址
+	private String address;//地址
 	
-	private String youbian;//邮编
+	private String postcode;//邮编
 	
-	@Column(name="neirong", columnDefinition="TEXT")
-	private String neirong;//留言内容
+	@Column(name="content", columnDefinition="TEXT")
+	private String content;//留言内容
 	
-	private String shijian;//留言时间
+	private String time;//留言时间
 
 	public int getId() {
 		return id;
@@ -38,72 +38,68 @@ public class Message {
 		this.id = id;
 	}
 
-	public String getXingming() {
-		return xingming;
+	public String getName() {
+		return name;
 	}
 
-	public void setXingming(String xingming) {
-		this.xingming = xingming;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getYoujianl() {
-		return youjianl;
+	public String getMailbox() {
+		return mailbox;
 	}
 
-	public void setYoujianl(String youjianl) {
-		this.youjianl = youjianl;
+	public void setMailbox(String mailbox) {
+		this.mailbox = mailbox;
 	}
 
-	public String getDianhua() {
-		return dianhua;
+	public String getTel() {
+		return tel;
 	}
 
-	public void setDianhua(String dianhua) {
-		this.dianhua = dianhua;
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 
-	public String getChuanzhen() {
-		return chuanzhen;
+	public String getFax() {
+		return fax;
 	}
 
-	public void setChuanzhen(String chuanzhen) {
-		this.chuanzhen = chuanzhen;
+	public void setFax(String fax) {
+		this.fax = fax;
 	}
 
-	public String getDizhi() {
-		return dizhi;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setDizhi(String dizhi) {
-		this.dizhi = dizhi;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public String getYoubian() {
-		return youbian;
+	public String getPostcode() {
+		return postcode;
 	}
 
-	public void setYoubian(String youbian) {
-		this.youbian = youbian;
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
 	}
 
-	public String getNeirong() {
-		return neirong;
+	public String getContent() {
+		return content;
 	}
 
-	public void setNeirong(String neirong) {
-		this.neirong = neirong;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
-	public String getShijian() {
-		return shijian;
+	public String getTime() {
+		return time;
 	}
 
-	public void setShijian(String shijian) {
-		this.shijian = shijian;
+	public void setTime(String time) {
+		this.time = time;
 	}
-	
-	
-	
-	
 	
 }

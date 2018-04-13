@@ -103,7 +103,7 @@ public class Util {
 						.getServletContext());
 		UserDao userDao = (UserDao) app.getBean("userDao");
 		PicDao picDao = (PicDao) app.getBean("picDao");
-		CompanyDao companyDao = (CompanyDao) app.getBean("qiyeDao");
+		CompanyDao companyDao = (CompanyDao) app.getBean("companyDao");
 		
 		User user = userDao
 				.selectBean(" where username='admin'  ");
@@ -130,16 +130,16 @@ public class Util {
 			picDao.insertBean(p3);
 			
 			Company q = new Company();
-			q.setChuanzhen("未初始化");
-			q.setDianhua("未初始化");
-			q.setDizhi("未初始化");
-			q.setJianjie("未初始化");
-			q.setLianxiren("未初始化");
+			q.setFax("未初始化");
+			q.setTel("未初始化");
+			q.setAddress("未初始化");
+			q.setInfo("未初始化");
+			q.setContact("未初始化");
 			q.setLogo("logo.jpg");
-			q.setShouji("未初始化");
-			q.setYoubian("未初始化");
-			q.setYouxiang("未初始化");
-			q.setMingchen("企业门户网站");
+			q.setPhone("未初始化");
+			q.setPostcode("未初始化");
+			q.setMailbox("未初始化");
+			q.setCompany_name("企业门户网站");
 			companyDao.insertBean(q);
 			
 		}
