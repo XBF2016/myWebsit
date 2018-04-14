@@ -34,24 +34,17 @@ ddsmoothmenu.init({
 </head>
 <body>
 <div id="wrapper">
-    <div class="top">
-    <span style="font-size: 50px;font-weight: bold;">
-    <img src="<%=basePath %>uploadfile/${qiye.logo }" width="300" height="90" />
-   ${qiye.mingchen }
-    </span>
-    
-    
-  </div>
+   
   
   <div id="MainMenu" class="ddsmoothmenu">
     <ul>
       <li><a href="." title="公司主页" id="menu_selected"><span>公司主页</span></a></li>
-      <li><a href="indexmethod!single.action" title="关于我们" ><span>关于我们</span></a> </li>
-      <li><a href="indexmethod!products.action" title="产品展示"><span>产品展示</span></a></li>
-      <li><a href="indexmethod!xinwenlist.action" title="新闻中心"><span>新闻中心</span></a></li>
-      <li><a href="indexmethod!zhaopinlist.action" title="招聘信息"><span>招聘信息</span></a></li>
-      <li><a href="indexmethod!messageadd.action" title="留言反馈"><span>留言反馈</span></a></li>
-      <li><a href="manage/login.jsp"  ><span>管理后台</span></a></li>
+      <li><a href="indexAction!single.action" title="关于我们" ><span>关于我们</span></a> </li>
+      <li><a href="indexAction!products.action" title="产品展示"><span>产品展示</span></a></li>
+      <li><a href="indexAction!xinwenlist.action" title="新闻中心"><span>新闻中心</span></a></li>
+      <li><a href="indexAction!zhaopinlist.action" title="招聘信息"><span>招聘信息</span></a></li>
+      <li><a href="indexAction!messageadd.action" title="留言反馈"><span>留言反馈</span></a></li>
+      <li><a href="manageAction!loginPage.action"  ><span>管理后台</span></a></li>
     </ul>
   </div>
   
@@ -69,7 +62,7 @@ $(function(){
 <!-- js图片和图片得文字说明 -->
   <div id="banner">
   <c:forEach items="${piclist}" var="pic">
-    <a href="."><img src="<%=basePath %>uploadfile/${pic.path }" alt="${pic.info }！" width="950" height="152" /></a>
+    <a href="."><img src="<%=basePath %>uploadfile/${pic.path }" ！" width="950" height="152" /></a>
   </c:forEach>
   
     
@@ -79,14 +72,14 @@ $(function(){
   <div id="index_main" class="clearfix">
     <div class="index-left">
       <div class="index-newproducts">
-        <h2><span>暂无信息</span><a href="indexmethod!products.action"><img src="images/more.gif" width="32" height="5" alt="产品展示" /></a></h2>
+        <h2><span>推荐产品</span><a href="indexmethod!products.action"><img src="images/more.gif" width="32" height="5" alt="推荐产品" /></a></h2>
         <div class="productsroll">
          
           <ul id="ScrollBox" class="clearfix">
-          <c:forEach items="${tjplist}" var="tjp">
-           <li><a href="indexmethod!product.action?id=${tjp.id }" title="${tjp.pname }">
-           <img src="uploadfile/${tjp.path }" alt="${tjp.pname }" width="140" height="100" />
-           <span>${tjp.pname }</span></a>
+          <c:forEach items="${recommendProductList}" var="recommendProduct">
+           <li><a href="indexmethod!product.action?id=${recommendProduct.id }" title="${recommendProduct.product_name }">
+           <img src="uploadfile/${recommendProduct.path }" alt="${recommendProduct.product_name }" width="140" height="100" />
+           <span>${recommendProduct.product_name }</span></a>
            </li>
            
           </c:forEach>
@@ -102,7 +95,7 @@ $(function(){
         <c:forEach items="${xwlist}" var="xw">
         
        
-         <li><a href="indexmethod!xinwen.action?id=${xw.id }" ><span>${fn:substring(xw.createtime,0, 10)}</span>-　${xw.biaoti }</a></li>
+         <li><a href="indexmethod!xinwen.action?id=${xw.id }" ><span>${fn:substring(xw.created_time,0, 10)}</span>-　${xw.title }</a></li>
           </c:forEach>
         </ul>
       </div>
@@ -111,7 +104,7 @@ $(function(){
       <div class="index-about">
         <h2><span>关于我们</span><a href="indexmethod!single.action"><img src="images/more.gif" width="32" height="5" alt="关于我们" /></a></h2>
         <p><img src="images/index_AboutPic.jpg" alt="关于我们" width="145" height="181" />
-        <a href="indexmethod!single.action" title="关于我们">${fn:substring(qiye.jianjie,0, 120)}　　...</a></p>
+        <a href="indexmethod!single.action" title="关于我们">${company.info}</a></p>
       </div>
      
       <div class="index-products">
@@ -120,7 +113,7 @@ $(function(){
         
         <c:forEach items="${plist}" var="pro">
         
-          <li><a href="indexmethod!product.action?id=${pro.id }"><img src="uploadfile/${pro.path }"  width="154" height="110" /><span>${pro.pname }</span></a></li>
+          <li><a href="indexmethod!product.action?id=${pro.id }"><img src="uploadfile/${pro.path }"  width="154" height="110" /><span>${pro.product_name }</span></a></li>
         </c:forEach>  
          
        
@@ -182,28 +175,28 @@ sitesearch.submit();
         <ul>
         
          <c:forEach items="${zlist}" var="zp">
-          <li><a href="indexmethod!zhaopin.action?id=${zp.id }" ><span>　-　${zp.zhiwei }</span></a></li>
+          <li><a href="indexmethod!zhaopin.action?id=${zp.id }" ><span>　-　${zp.position }</span></a></li>
           </c:forEach>
           
         </ul>
       </div>
       <div class="index-contact">
         <h2><span>联系我们</span></h2>
-        <p><span>地址: </span>${qiye.dizhi }<br />
-          <span>邮编: </span>${qiye.youbian }<br />
-          <span>联系人: </span>${qiye.lianxiren }<br />
-          <span>电话: </span>${qiye.dianhua }<br />
-          <span>传真: </span>${qiye.chuanzhen }<br />
-          <span>手机: </span>${qiye.shouji }<br />
-          <span>邮箱: </span>${qiye.youxiang }</p>
+        <p><span>地址: </span>${company.address }<br />
+          <span>邮编: </span>${company.postcode }<br />
+          <span>联系人: </span>${company.contact }<br />
+          <span>电话: </span>${company.tel }<br />
+          <span>传真: </span>${company.fax }<br />
+          <span>手机: </span>${company.phone }<br />
+          <span>邮箱: </span>${company.mailbox }</p>
       </div>
       
     </div>
   </div>
-    <div id="copyright"> Copyright ©&nbsp;<a href="http://www.netgather.com" >${qiye.mingchen }</a> All Rights Reserved.<br />
-    <span>地址: </span>${qiye.dizhi }　<span>邮编: </span>${qiye.youbian }　<span>联系人: </span>${qiye.lianxiren }<br />
-    <span>电话: </span>${qiye.dianhua }　<span>传真: </span>${qiye.chuanzhen }　<span>手机: </span>${qiye.shouji }<br />
-    <span>邮箱: </span>${qiye.youxiang }
+    <div id="copyright"> Copyright ©&nbsp;<a href="http://www.netgather.com" >${company.name }</a> All Rights Reserved.<br />
+    <span>地址: </span>${company.address }　<span>邮编: </span>${company.postcode }　<span>联系人: </span>${company.contact }<br />
+    <span>电话: </span>${company.tel }　<span>传真: </span>${company.fax }　<span>手机: </span>${company.phone }<br />
+    <span>邮箱: </span>${company.mailbox }
   </div>
 </div>
 </body>

@@ -30,14 +30,6 @@ ddsmoothmenu.init({
 </head>
 <body>
 <div id="wrapper">
-    <div class="top">
-    <span style="font-size: 50px;font-weight: bold;">
-    <img src="<%=basePath %>uploadfile/${qiye.logo }" width="300" height="90" />
-   ${qiye.mingchen }
-    </span>
-    
-    
-  </div>
   
   <div id="MainMenu" class="ddsmoothmenu">
     <ul>
@@ -136,22 +128,21 @@ sitesearch.submit();
       </div>
       <div class="left-contact">
         <h2><span>联系我们</span></h2>
-        <p><span>地址: </span>${qiye.dizhi }<br />
-          <span>邮编: </span>${qiye.youbian }<br />
-          <span>联系人: </span>${qiye.lianxiren }<br />
-          <span>电话: </span>${qiye.dianhua }<br />
-          <span>传真: </span>${qiye.chuanzhen }<br />
-          <span>手机: </span>${qiye.shouji }<br />
-          <span>邮箱: </span>${qiye.youxiang }</p>
+        <p><span>地址: </span>${company.address }<br />
+          <span>邮编: </span>${company.postcode }<br />
+          <span>联系人: </span>${company.contact }<br />
+          <span>电话: </span>${company.tel }<br />
+          <span>传真: </span>${company.fax }<br />
+          <span>手机: </span>${company.phone }<br />
+          <span>邮箱: </span>${company.mailbox }</p>
       </div>
-   
+      
     </div>
   </div>
-    
-    <div id="copyright"> Copyright ©&nbsp;<a href="http://www.netgather.com" >${qiye.mingchen }</a> All Rights Reserved.<br />
-    <span>地址: </span>${qiye.dizhi }　<span>邮编: </span>${qiye.youbian }　<span>联系人: </span>${qiye.lianxiren }<br />
-    <span>电话: </span>${qiye.dianhua }　<span>传真: </span>${qiye.chuanzhen }　<span>手机: </span>${qiye.shouji }<br />
-    <span>邮箱: </span>${qiye.youxiang }
+    <div id="copyright"> Copyright ©&nbsp;<a href="http://www.netgather.com" >${company.name }</a> All Rights Reserved.<br />
+    <span>地址: </span>${company.address }　<span>邮编: </span>${company.postcode }　<span>联系人: </span>${company.contact }<br />
+    <span>电话: </span>${company.tel }　<span>传真: </span>${company.fax }　<span>手机: </span>${company.phone }<br />
+    <span>邮箱: </span>${company.mailbox }
   </div>
 </div>
 </body>

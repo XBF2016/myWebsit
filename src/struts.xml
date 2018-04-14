@@ -13,18 +13,19 @@
 		   <result name="success" >index.jsp</result>
         </action>
 	 
-        <action name="indexmethod"  class="indexAction" >
+        <action name="indexAction"  class="indexAction" >
            <result type="dispatcher">${url}</result>
 		   <result name="redirect" type="redirect">${url}</result>
         </action>
 	 
 	 
-		<action name="method" class="manageAction">
+		<action name="manageAction" class="manageAction">
+		   <result name="loginPage">manage/login.jsp</result> 
 			<result type="dispatcher">${url}</result>
 			<result name="redirect" type="redirect">${url}</result>
 		</action>
-        
     </package>
+    
 	
 
 </struts>

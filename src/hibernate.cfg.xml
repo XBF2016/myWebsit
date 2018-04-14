@@ -35,11 +35,11 @@
 
 		<mapping class="com.myWebsit.bean.User"/>
 		<mapping class="com.myWebsit.bean.Pic"/>
-		<mapping class="com.myWebsit.bean.Qiye"/>
+		<mapping class="com.myWebsit.bean.Company"/>
 		<mapping class="com.myWebsit.bean.Product"/>
 		
-		<mapping class="com.myWebsit.bean.Xinwen"/>
-		<mapping class="com.myWebsit.bean.Zhaopin"/>
+		<mapping class="com.myWebsit.bean.News"/>
+		<mapping class="com.myWebsit.bean.Recruit"/>
 		
 		<mapping class="com.myWebsit.bean.Message"/>
 		

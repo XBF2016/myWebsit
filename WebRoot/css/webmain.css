@@ -1,6 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
-body,button,input,select,textarea{color:#333;font:12px/1.5 Tahoma,Helvetica,Arial,\5b8b\4f53}
+body,button,input,select,textarea{color:#333;font:12px/1.5 微软雅黑,Helvetica,Arial,\5b8b\4f53}
+.ddsmoothmenu{color:#333;font:16px/1.5 微软雅黑,Helvetica,Arial,\5b8b\4f53}
 a:link,a:visited,a:active{color:#000;text-decoration:none}
 a:hover{color:#008aff;text-decoration:none}
 /* Clear */
@@ -43,7 +44,7 @@ body{background:#f6f6f6 url(../images/body_bg.gif) top repeat-x}
 #ScrollBox li a:hover{border:#008aff 1px solid;color:#008aff}
 #ScrollBox li a span{display:block;padding-top:4px}
 /* productsroll End */
-.index-news{background:url(../images/v_line2.gif) 350px top no-repeat;float:left;padding:0px 5px;width:346px}
+.index-news{background:url(../images/v_line2.gif) 350px top no-repeat;float:left;padding:0px 5px;width:706px}
 .index-news h2{background-position:0px -34px}
 .index-news ul{padding:0px 0px 10px 5px}
 .index-news ul li{padding:4px 0px}
@@ -51,7 +52,7 @@ body{background:#f6f6f6 url(../images/body_bg.gif) top repeat-x}
 .index-news ul li h3{font-size:100%;font-weight:bold;line-height:25px}
 .index-news ul li p{color:#666}
 .index-news ul li a span{color:#666;float:right;margin-right:10px}
-.index-about{float:left;width:350px}
+.index-about{float:left;width:706px}
 .index-about h2{background-position:0px -68px}
 .index-about p{line-height:23px;padding:4px 0px 0px 5px}
 .index-about p img{float:left;margin-right:8px}

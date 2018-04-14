@@ -32,7 +32,7 @@ public class Company {
 	
 	private String mailbox;//邮箱
 	
-	private String company_name;//企业名称
+	private String name;//企业名称
 
 	public int getId() {
 		return id;
@@ -114,12 +114,12 @@ public class Company {
 		this.mailbox = mailbox;
 	}
 
-	public String getCompany_name() {
-		return company_name;
+	public String getName() {
+		return name;
 	}
 
-	public void setCompany_name(String company_name) {
-		this.company_name = company_name;
+	public void setName(String name) {
+		this.name =name;
 	}
 
 	

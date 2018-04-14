@@ -52,6 +52,10 @@ public class ManageAction extends ActionSupport {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	//登录页面
+		public String loginPage() throws IOException {
+			return "loginPage";
+		}
 	
 //登入请求
 	public String login() throws IOException {
@@ -250,7 +254,7 @@ public class ManageAction extends ActionSupport {
 		bean.setPhone(phone);
 		bean.setPostcode(postcode);
 		bean.setMailbox(mailbox);
-		bean.setCompany_name(company_name);
+		bean.setName(company_name);
 		if(uploadfile!=null){
 			String savaPath = ServletActionContext.getServletContext().getRealPath(
 			"/")

@@ -51,11 +51,6 @@ public class IndexAction extends ActionSupport {
 	
 	private PicDao picDao;
 	
-	private CompanyDao companyDao;
-	
-	
-	
-	
 	public PicDao getPicDao() {
 		return picDao;
 	}
@@ -63,8 +58,17 @@ public class IndexAction extends ActionSupport {
 	public void setPicDao(PicDao picDao) {
 		this.picDao = picDao;
 	}
+	
+	private CompanyDao companyDao;
+	
+	public CompanyDao getCompanyDao() {
+		return companyDao;
+	}
 
-
+	public void setCompanyDao(CompanyDao companyDao) {
+		this.companyDao = companyDao;
+	}
+	
 	
 	private ProductDao productDao;
 	
@@ -78,17 +82,6 @@ public class IndexAction extends ActionSupport {
 
 	private NewsDao newsDao;
 	
-	private RecruitDao recruitDao;
-
-
-	public CompanyDao getCompanyDao() {
-		return companyDao;
-	}
-
-	public void setCompanyDao(CompanyDao companyDao) {
-		this.companyDao = companyDao;
-	}
-
 	public NewsDao getNewsDao() {
 		return newsDao;
 	}
@@ -97,6 +90,9 @@ public class IndexAction extends ActionSupport {
 		this.newsDao = newsDao;
 	}
 
+	
+	private RecruitDao recruitDao;
+
 	public RecruitDao getRecruitDao() {
 		return recruitDao;
 	}
@@ -104,27 +100,32 @@ public class IndexAction extends ActionSupport {
 	public void setRecruitDao(RecruitDao recruitDao) {
 		this.recruitDao = recruitDao;
 	}
+	
+
+	
+
 
 	//网站首页
 	public String index() {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		Company company = companyDao.selectBean(" where id=1 ");//企业信息
-		request.setAttribute("qiye", company);
-		List<Pic> piclist = picDao.selectBeanList(0, 9999, "");//图片信息
-		request.setAttribute("piclist", piclist);
+		//企业信息
+		Company company = companyDao.selectBean(" where id=1 ");
+		request.setAttribute("company", company);
+		//图片信息
+		List<Pic> picList = picDao.selectBeanList(0, 9999, "");
+		request.setAttribute("piclist", picList);
+		//推荐产品
+		List<Product> recommendProductList = productDao.selectBeanList(0, 9999, " where is_recommend='推荐' order by id desc  ");
+		request.setAttribute("recommendProductList", recommendProductList);
 		
-		
-		List<Product> tjplist = productDao.selectBeanList(0, 9999, " where tuijian='推荐' order by id desc  ");//推荐产品
-		request.setAttribute("tjplist", tjplist);
-		
-		List<News> xwlist = newsDao.selectBeanList(0, 7, " order by tuijian,id desc  ");//新闻列表
+		List<News> xwlist = newsDao.selectBeanList(0, 7, " order by is_recommend,id desc  ");//新闻列表
 		request.setAttribute("xwlist", xwlist);
 		
 		
 		List<Product> plist = productDao.selectBeanList(0, 8, "  order by id desc  ");//产品展示
 		request.setAttribute("plist", plist);
 		
-		List<Recruit>  zlist = recruitDao.selectBeanList(0, 5, " order by tuijian,id desc ");//招聘信息
+		List<Recruit>  zlist = recruitDao.selectBeanList(0, 5, " order by is_recommend,id desc ");//招聘信息
 		request.setAttribute("zlist", zlist);
 		
 		return "success";
@@ -136,7 +137,7 @@ public class IndexAction extends ActionSupport {
 	public String single() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Company company = companyDao.selectBean(" where id=1 ");//企业信息
-		request.setAttribute("qiye", company);
+		request.setAttribute("company", company);
 		List<Pic> piclist = picDao.selectBeanList(0, 9999, "");//图片信息
 		request.setAttribute("piclist", piclist);
 
@@ -150,7 +151,7 @@ public class IndexAction extends ActionSupport {
 	public String products() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Company company = companyDao.selectBean(" where id=1 ");//企业信息
-		request.setAttribute("qiye", company);
+		request.setAttribute("company", company);
 		List<Pic> piclist = picDao.selectBeanList(0, 9999, "");//图片信息
 		request.setAttribute("piclist", piclist);
 
@@ -163,13 +164,13 @@ public class IndexAction extends ActionSupport {
 
 		if (pname != null && !"".equals(pname)) {
 
-			sb.append("pname like '%" + pname + "%'");
+			sb.append("product_name like '%" + pname + "%'");
 			sb.append(" and ");
 			request.setAttribute("searchtext", pname);
 		}
 		
 
-		sb.append("   1=1 order by tuijian ,id desc ");
+		sb.append("   1=1 order by is_recommend ,id desc ");
 		String where = sb.toString();
 
 
@@ -194,7 +195,7 @@ public class IndexAction extends ActionSupport {
 	public String product() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Company company = companyDao.selectBean(" where id=1 ");//企业信息
-		request.setAttribute("qiye", company);
+		request.setAttribute("company", company);
 		List<Pic> piclist = picDao.selectBeanList(0, 9999, "");//图片信息
 		request.setAttribute("piclist", piclist);
 		
@@ -211,7 +212,7 @@ public class IndexAction extends ActionSupport {
 	public String xinwenlist() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Company company = companyDao.selectBean(" where id=1 ");//企业信息
-		request.setAttribute("qiye", company);
+		request.setAttribute("company", company);
 		List<Pic> piclist = picDao.selectBeanList(0, 9999, "");//图片信息
 		request.setAttribute("piclist", piclist);
 
@@ -224,13 +225,13 @@ public class IndexAction extends ActionSupport {
 
 		if (biaoti != null && !"".equals(biaoti)) {
 
-			sb.append("biaoti like '%" + biaoti + "%'");
+			sb.append("title like '%" + biaoti + "%'");
 			sb.append(" and ");
 			request.setAttribute("searchtext", biaoti);
 		}
 		
 
-		sb.append("   1=1 order by tuijian ,id desc ");
+		sb.append("   1=1 order by is_recommend ,id desc ");
 		String where = sb.toString();
 
 
@@ -255,12 +256,12 @@ public class IndexAction extends ActionSupport {
 	public String xinwen() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Company company = companyDao.selectBean(" where id=1 ");//企业信息
-		request.setAttribute("qiye", company);
+		request.setAttribute("company", company);
 		List<Pic> piclist = picDao.selectBeanList(0, 9999, "");//图片信息
 		request.setAttribute("piclist", piclist);
 		
 		News news = newsDao.selectBean(" where id= "+request.getParameter("id"));
-		request.setAttribute("xinwen", news);
+		request.setAttribute("news", news);
 		
 		
 		this.setUrl("xinwen.jsp");
@@ -273,7 +274,7 @@ public class IndexAction extends ActionSupport {
 	public String zhaopinlist() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Company company = companyDao.selectBean(" where id=1 ");//企业信息
-		request.setAttribute("qiye", company);
+		request.setAttribute("company", company);
 		List<Pic> piclist = picDao.selectBeanList(0, 9999, "");//图片信息
 		request.setAttribute("piclist", piclist);
 
@@ -286,13 +287,13 @@ public class IndexAction extends ActionSupport {
 
 		if (zhiwei != null && !"".equals(zhiwei)) {
 
-			sb.append("zhiwei like '%" + zhiwei + "%'");
+			sb.append("position like '%" + zhiwei + "%'");
 			sb.append(" and ");
 			request.setAttribute("searchtext", zhiwei);
 		}
 		
 
-		sb.append("   1=1 order by tuijian ,id desc ");
+		sb.append("   1=1 order by is_recommend ,id desc ");
 		String where = sb.toString();
 
 
@@ -316,7 +317,7 @@ public class IndexAction extends ActionSupport {
 	public String zhaopin() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Company company = companyDao.selectBean(" where id=1 ");//企业信息
-		request.setAttribute("qiye", company);
+		request.setAttribute("company", company);
 		List<Pic> piclist = picDao.selectBeanList(0, 9999, "");//图片信息
 		request.setAttribute("piclist", piclist);
 		
@@ -345,7 +346,7 @@ public class IndexAction extends ActionSupport {
 	public String messageadd() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Company company = companyDao.selectBean(" where id=1 ");//企业信息
-		request.setAttribute("qiye", company);
+		request.setAttribute("company", company);
 		List<Pic> piclist = picDao.selectBeanList(0, 9999, "");//图片信息
 		request.setAttribute("piclist", piclist);
 		

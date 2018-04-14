@@ -8,7 +8,7 @@
            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
 	
-	<!--           daos          -->
+	<!--           userDao          -->
 	<bean id="userDao" class="com.myWebsit.dao.impl.UserDaoImpl" >
 		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
 	</bean>
@@ -30,7 +30,7 @@
 		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
 	</bean>
 	
-	<bean id="zhaopinDao" class="com.myWebsit.dao.impl.RecruitDaoImpl" >
+	<bean id="recruitDao" class="com.myWebsit.dao.impl.RecruitDaoImpl" >
 		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
 	</bean>
 	

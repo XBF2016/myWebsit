@@ -139,7 +139,7 @@ public class Util {
 			q.setPhone("未初始化");
 			q.setPostcode("未初始化");
 			q.setMailbox("未初始化");
-			q.setCompany_name("企业门户网站");
+			q.setName("企业门户网站");
 			companyDao.insertBean(q);
 			
 		}
