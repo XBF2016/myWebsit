@@ -5,7 +5,7 @@
 /*主菜单设置*/
 .ddsmoothmenu ul li{position:relative;display:inline;float:left;margin:0px 4px}
 .ddsmoothmenu ul li a{display:block;height:30px;line-height:30px}
-.ddsmoothmenu ul li a span{display:block;padding:0px 15px}
+.ddsmoothmenu ul li a span{display:block;padding:0px 8px}
 /*主菜单连接效果设置*/
 .ddsmoothmenu ul li a:link,.ddsmoothmenu ul li a:visited{color:#000}
 .ddsmoothmenu ul li a:hover{background:url(../images/mainmenu.gif) no-repeat center -30px}

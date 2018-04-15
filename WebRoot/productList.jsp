@@ -31,15 +31,16 @@ ddsmoothmenu.init({
 <body>
 <div id="wrapper">
   
-  <div id="MainMenu" class="ddsmoothmenu">
+   <div id="MainMenu" class="ddsmoothmenu">
     <ul>
-      <li><a href="." title="公司主页" ><span>公司主页</span></a></li>
-      <li><a href="indexmethod!single.action" title="关于我们" id="menu_selected" ><span>关于我们</span></a> </li>
-      <li><a href="indexmethod!products.action" title="产品展示"><span>产品展示</span></a></li>
-      <li><a href="indexmethod!xinwenlist.action" title="新闻中心"><span>新闻中心</span></a></li>
-      <li><a href="indexmethod!zhaopinlist.action" title="招聘信息"><span>招聘信息</span></a></li>
-      <li><a href="indexmethod!messageadd.action" title="留言反馈"><span>留言反馈</span></a></li>
-      <li><a href="manage/login.jsp"  ><span>管理后台</span></a></li>
+     <li><a href="index.action" title="公司主页" ><span>公司主页</span></a></li>
+      <li><a href="indexAction!aboutUsPage.action" title="企业介绍" ><span>企业介绍</span></a> </li>
+      <li><a href="indexAction!productListPage.action" title="产品中心" id="menu_selected"><span>产品中心</span></a></li>
+      <li><a href="indexAction!newsListPage.action" title="新闻中心"><span>新闻中心</span></a></li>
+      <li><a href="indexAction!recruitListPage.action" title="招聘信息"><span>招聘信息</span></a></li>
+      <li><a href="indexAction!serviceSupportPage.action" title="服务支持"><span>服务支持</span></a></li>
+      <li><a href="indexAction!feedbackPage.action" title="留言反馈"><span>留言反馈</span></a></li>
+      <li><a href="manageAction!loginPage.action"  ><span>管理员登录</span></a></li>
     </ul>
   </div>
   
@@ -47,7 +48,7 @@ ddsmoothmenu.init({
 $(function(){
     $("#banner").KinSlideshow({
             moveStyle:"right",
-            titleBar:{titleBar_height:32,titleBar_bgColor:"#000",titleBar_alpha:0.7},
+            titleBar:{titleBar_height:32,titleBar_bgColor:"#000",titleBar_alpha:0},
             titleFont:{TitleFont_size:12,TitleFont_color:"#FFFFFF",TitleFont_weight:"normal"},
             btn:{btn_bgColor:"#2d2d2d",btn_bgHoverColor:"#1072aa",btn_fontColor:"#FFF",btn_fontHoverColor:"#FFF",btn_borderColor:"#4a4a4a",btn_borderHoverColor:"#1188c0",btn_borderWidth:1}
     });
@@ -57,7 +58,7 @@ $(function(){
 <!-- js图片和图片得文字说明 -->
   <div id="banner">
   <c:forEach items="${piclist}" var="pic">
-    <a href="."><img src="<%=basePath %>uploadfile/${pic.path }" alt="${pic.info }！" width="950" height="152" /></a>
+    <a href="."><img src="<%=basePath %>uploadfile/${pic.path }" ！" width="1300px" height="250" /></a>
   </c:forEach>
   
     
@@ -65,18 +66,19 @@ $(function(){
   
   
   
-  
-  
   <div id="page_main" class="clearfix">
     <div class="page-right">
-      <div class="site-nav"><span>当前位置 : </span><a href=".">公司主页</a> &gt;&gt; <a href="indexmethod!single.action" title="关于我们">关于我们</a></div>
-      <div class="page-single">
-<p style="LINE-HEIGHT: 25px">
-${qiye.jianjie }
-</p>
+      <div class="site-nav"><span>当前位置 : </span><a href=".">公司主页</a> &gt;&gt; <a href="indexmethod!products.action" title="产品中心">产品中心</a></div>
+      <div class="page-products">
+      <ul class="clearfix">
+
+<c:forEach items="${list}" var="pro">
+<li><a href="indexmethod!product.action?id=${pro.id }" ><img src="uploadfile/${pro.path }" width="210" height="150"  /><span>${pro.product_name }</span></a></li>
+</c:forEach>
+</ul>
+<div class="page_list"><div class="list_info">${pagerinfo }</div></div>
       </div>
     </div>
-    
     <div class="page-left">
       
       <script type="text/javascript">
@@ -119,15 +121,17 @@ sitesearch.submit();
             </select>
           </p>
           <p>
-            <input name="searchtext" value="${searchtext }" type="text" id="searchtext"/>
+            <input name="searchtext"  value="${searchtext }" type="text" id="searchtext"/>
           </p>
           <p>
             <input name="searchbutton" type="submit" id="searchbutton" value="" onclick="fromfrom()" />
           </p>
         </form>
       </div>
+      
+      
       <div class="left-contact">
-        <h2><span>联系我们</span></h2>
+       <h2><span>联系我们</span></h2>
         <p><span>地址: </span>${company.address }<br />
           <span>邮编: </span>${company.postcode }<br />
           <span>联系人: </span>${company.contact }<br />

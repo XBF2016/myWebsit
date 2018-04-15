@@ -133,22 +133,22 @@ public class IndexAction extends ActionSupport {
 	
 	
 	
-	//跳转到关于我们页面
-	public String single() {
+	//企业介绍页面
+	public String aboutUsPage() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Company company = companyDao.selectBean(" where id=1 ");//企业信息
 		request.setAttribute("company", company);
 		List<Pic> piclist = picDao.selectBeanList(0, 9999, "");//图片信息
 		request.setAttribute("piclist", piclist);
 
-		this.setUrl("single.jsp");
+		this.setUrl("aboutUs.jsp");
 		return SUCCESS;
 	}
 	
 
 	
-	//产品展示
-	public String products() {
+	//产品展示页面
+	public String productListPage() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Company company = companyDao.selectBean(" where id=1 ");//企业信息
 		request.setAttribute("company", company);
@@ -186,7 +186,7 @@ public class IndexAction extends ActionSupport {
 				currentpage, "indexmethod!products.action", "共有" + total + "条记录"));
 		
 		
-		this.setUrl("products.jsp");
+		this.setUrl("productList.jsp");
 		return SUCCESS;
 	}
 	
@@ -209,7 +209,7 @@ public class IndexAction extends ActionSupport {
 	
 	
 	//新闻中心
-	public String xinwenlist() {
+	public String newsListPage() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Company company = companyDao.selectBean(" where id=1 ");//企业信息
 		request.setAttribute("company", company);
@@ -246,14 +246,14 @@ public class IndexAction extends ActionSupport {
 		request.setAttribute("pagerinfo", Pager.getPagerNormal(total, pagesize,
 				currentpage, "indexmethod!xinwenlist.action", "共有" + total + "条记录"));
 		
-		this.setUrl("xinwenlist.jsp");
+		this.setUrl("newsList.jsp");
 		return SUCCESS;
 	}
 	
 	
 	
 	//跳转到查看新闻页面
-	public String xinwen() {
+	public String newsPage() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Company company = companyDao.selectBean(" where id=1 ");//企业信息
 		request.setAttribute("company", company);
@@ -264,14 +264,14 @@ public class IndexAction extends ActionSupport {
 		request.setAttribute("news", news);
 		
 		
-		this.setUrl("xinwen.jsp");
+		this.setUrl("news.jsp");
 		return SUCCESS;
 	}
 	
 	
 	
 	//招聘信息
-	public String zhaopinlist() {
+	public String recruitListPage() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Company company = companyDao.selectBean(" where id=1 ");//企业信息
 		request.setAttribute("company", company);
@@ -308,13 +308,13 @@ public class IndexAction extends ActionSupport {
 		request.setAttribute("pagerinfo", Pager.getPagerNormal(total, pagesize,
 				currentpage, "indexmethod!zhaopinlist.action", "共有" + total + "条记录"));
 		
-		this.setUrl("zhaopinlist.jsp");
+		this.setUrl("recruitList.jsp");
 		return SUCCESS;
 	}
 	
 	
 	//跳转到查看招聘页面
-	public String zhaopin() {
+	public String recruitPage() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Company company = companyDao.selectBean(" where id=1 ");//企业信息
 		request.setAttribute("company", company);
@@ -325,7 +325,7 @@ public class IndexAction extends ActionSupport {
 		request.setAttribute("zhaopin", recruit);
 		
 		
-		this.setUrl("zhaopin.jsp");
+		this.setUrl("recruit.jsp");
 		return SUCCESS;
 	}
 	
@@ -343,14 +343,14 @@ public class IndexAction extends ActionSupport {
 	
 	
 	//跳转到添加留言反馈页面
-	public String messageadd() {
+	public String feedbackPage() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Company company = companyDao.selectBean(" where id=1 ");//企业信息
 		request.setAttribute("company", company);
 		List<Pic> piclist = picDao.selectBeanList(0, 9999, "");//图片信息
 		request.setAttribute("piclist", piclist);
 		
-		this.setUrl("messageadd.jsp");
+		this.setUrl("feedback.jsp");
 		return SUCCESS;
 	}
 //添加留言反馈操作

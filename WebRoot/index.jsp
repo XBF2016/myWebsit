@@ -39,12 +39,13 @@ ddsmoothmenu.init({
   <div id="MainMenu" class="ddsmoothmenu">
     <ul>
       <li><a href="." title="公司主页" id="menu_selected"><span>公司主页</span></a></li>
-      <li><a href="indexAction!single.action" title="关于我们" ><span>关于我们</span></a> </li>
-      <li><a href="indexAction!products.action" title="产品展示"><span>产品展示</span></a></li>
-      <li><a href="indexAction!xinwenlist.action" title="新闻中心"><span>新闻中心</span></a></li>
-      <li><a href="indexAction!zhaopinlist.action" title="招聘信息"><span>招聘信息</span></a></li>
-      <li><a href="indexAction!messageadd.action" title="留言反馈"><span>留言反馈</span></a></li>
-      <li><a href="manageAction!loginPage.action"  ><span>管理后台</span></a></li>
+      <li><a href="indexAction!aboutUsPage.action" title="关于我们" ><span>企业介绍</span></a> </li>
+      <li><a href="indexAction!productListPage.action" title="产品展示"><span>产品中心</span></a></li>
+      <li><a href="indexAction!newsListPage.action" title="新闻中心"><span>新闻中心</span></a></li>
+      <li><a href="indexAction!recruitListPage.action" title="招聘信息"><span>招聘信息</span></a></li>
+      <li><a href="indexAction!serviceSupportPage.action" title="服务支持"><span>服务支持</span></a></li>
+      <li><a href="indexAction!feedbackPage.action" title="留言反馈"><span>留言反馈</span></a></li>
+      <li><a href="manageAction!loginPage.action"  ><span>管理员登录</span></a></li>
     </ul>
   </div>
   
@@ -52,7 +53,7 @@ ddsmoothmenu.init({
 $(function(){
     $("#banner").KinSlideshow({
             moveStyle:"right",
-            titleBar:{titleBar_height:32,titleBar_bgColor:"#000",titleBar_alpha:0.7},
+            titleBar:{titleBar_height:32,titleBar_bgColor:"#000",titleBar_alpha:0},
             titleFont:{TitleFont_size:12,TitleFont_color:"#FFFFFF",TitleFont_weight:"normal"},
             btn:{btn_bgColor:"#2d2d2d",btn_bgHoverColor:"#1072aa",btn_fontColor:"#FFF",btn_fontHoverColor:"#FFF",btn_borderColor:"#4a4a4a",btn_borderHoverColor:"#1188c0",btn_borderWidth:1}
     });
@@ -62,7 +63,7 @@ $(function(){
 <!-- js图片和图片得文字说明 -->
   <div id="banner">
   <c:forEach items="${piclist}" var="pic">
-    <a href="."><img src="<%=basePath %>uploadfile/${pic.path }" ！" width="950" height="152" /></a>
+    <a href="."><img src="<%=basePath %>uploadfile/${pic.path }" ！" width="1300px" height="250" /></a>
   </c:forEach>
   
     
@@ -101,24 +102,7 @@ $(function(){
       </div>
       
       
-      <div class="index-about">
-        <h2><span>关于我们</span><a href="indexmethod!single.action"><img src="images/more.gif" width="32" height="5" alt="关于我们" /></a></h2>
-        <p><img src="images/index_AboutPic.jpg" alt="关于我们" width="145" height="181" />
-        <a href="indexmethod!single.action" title="关于我们">${company.info}</a></p>
-      </div>
      
-      <div class="index-products">
-        <h2><span>产品展示</span><a href="indexmethod!products.action"><img src="images/more.gif" width="32" height="5" alt="产品展示" /></a></h2>
-        <ul class="clearfix">
-        
-        <c:forEach items="${plist}" var="pro">
-        
-          <li><a href="indexmethod!product.action?id=${pro.id }"><img src="uploadfile/${pro.path }"  width="154" height="110" /><span>${pro.product_name }</span></a></li>
-        </c:forEach>  
-         
-       
-        </ul>
-      </div>
     </div>
     <div class="index-right">
       
