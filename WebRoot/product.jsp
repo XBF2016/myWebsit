@@ -60,8 +60,6 @@ $(function(){
   <c:forEach items="${piclist}" var="pic">
     <a href="."><img src="<%=basePath %>uploadfile/${pic.path }" ！" width="1300px" height="250" /></a>
   </c:forEach>
-  
-    
   </div>
   
   

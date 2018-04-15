@@ -90,7 +90,6 @@ public class IndexAction extends ActionSupport {
 		this.newsDao = newsDao;
 	}
 
-	
 	private RecruitDao recruitDao;
 
 	public RecruitDao getRecruitDao() {
@@ -100,10 +99,6 @@ public class IndexAction extends ActionSupport {
 	public void setRecruitDao(RecruitDao recruitDao) {
 		this.recruitDao = recruitDao;
 	}
-	
-
-	
-
 
 	//网站首页
 	public String index() {
@@ -117,16 +112,9 @@ public class IndexAction extends ActionSupport {
 		//推荐产品
 		List<Product> recommendProductList = productDao.selectBeanList(0, 9999, " where is_recommend='推荐' order by id desc  ");
 		request.setAttribute("recommendProductList", recommendProductList);
-		
-		List<News> xwlist = newsDao.selectBeanList(0, 7, " order by is_recommend,id desc  ");//新闻列表
+		//新闻列表
+		List<News> xwlist = newsDao.selectBeanList(0, 7, " order by is_recommend,id desc  ");
 		request.setAttribute("xwlist", xwlist);
-		
-		
-		List<Product> plist = productDao.selectBeanList(0, 8, "  order by id desc  ");//产品展示
-		request.setAttribute("plist", plist);
-		
-		List<Recruit>  zlist = recruitDao.selectBeanList(0, 5, " order by is_recommend,id desc ");//招聘信息
-		request.setAttribute("zlist", zlist);
 		
 		return "success";
 	}
@@ -136,9 +124,11 @@ public class IndexAction extends ActionSupport {
 	//企业介绍页面
 	public String aboutUsPage() {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		Company company = companyDao.selectBean(" where id=1 ");//企业信息
+		//企业信息
+		Company company = companyDao.selectBean(" where id=1 ");
 		request.setAttribute("company", company);
-		List<Pic> piclist = picDao.selectBeanList(0, 9999, "");//图片信息
+		//图片信息
+		List<Pic> piclist = picDao.selectBeanList(0, 9999, "");
 		request.setAttribute("piclist", piclist);
 
 		this.setUrl("aboutUs.jsp");

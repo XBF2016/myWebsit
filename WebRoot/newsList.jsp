@@ -34,7 +34,8 @@ ddsmoothmenu.init({
   
    <div id="MainMenu" class="ddsmoothmenu">
     <ul>
-     <li><a href="index.action" title="公司主页" ><span>公司主页</span></a></li>
+      <li><img src="images/logo.jpg" id="logoImg"></li>
+      <li><a href="index.action" title="公司主页" ><span>公司主页</span></a></li>
       <li><a href="indexAction!aboutUsPage.action" title="企业介绍" ><span>企业介绍</span></a> </li>
       <li><a href="indexAction!productListPage.action" title="产品中心"><span>产品中心</span></a></li>
       <li><a href="indexAction!newsListPage.action" title="新闻中心" id="menu_selected"><span>新闻中心</span></a></li>
@@ -55,14 +56,12 @@ $(function(){
     });
 })
 </script>
-
+<hr>
 <!-- js图片和图片得文字说明 -->
   <div id="banner">
   <c:forEach items="${piclist}" var="pic">
     <a href="."><img src="<%=basePath %>uploadfile/${pic.path }" ！" width="1300px" height="250" /></a>
   </c:forEach>
-  
-    
   </div>
   
   
@@ -146,10 +145,9 @@ sitesearch.submit();
       
     </div>
   </div>
-    <div id="copyright"> Copyright ©&nbsp;<a href="http://www.netgather.com" >${company.name }</a> All Rights Reserved.<br />
-    <span>地址: </span>${company.address }　<span>邮编: </span>${company.postcode }　<span>联系人: </span>${company.contact }<br />
-    <span>电话: </span>${company.tel }　<span>传真: </span>${company.fax }　<span>手机: </span>${company.phone }<br />
-    <span>邮箱: </span>${company.mailbox }
+   <div id="copyright"> Copyright ©&nbsp;<a href="http://www.ncu.edu.com" >${company.name }</a> All Rights Reserved.<br />
+    <span>地址: </span>${company.address }　<span>邮编: </span>${company.postcode }　<span>联系人: </span>${company.contact } <span>电话: </span>${company.tel }　　<br />
+    <span>传真: </span>${company.fax }  <span>手机: </span>${company.phone }  <span>邮箱: </span>${company.mailbox }
   </div>
 </div>
 </body>

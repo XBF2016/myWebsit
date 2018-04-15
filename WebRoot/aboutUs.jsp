@@ -33,6 +33,7 @@ ddsmoothmenu.init({
   
 <div id="MainMenu" class="ddsmoothmenu">
     <ul>
+      <li><img src="images/logo.jpg" id="logoImg"></li>
       <li><a href="index.action" title="公司主页" ><span>公司主页</span></a></li>
       <li><a href="indexAction!aboutUsPage.action" title="企业介绍" id="menu_selected"><span>企业介绍</span></a> </li>
       <li><a href="indexAction!productListPage.action" title="产品中心"><span>产品中心</span></a></li>
@@ -60,6 +61,7 @@ $(function(){
   <c:forEach items="${piclist}" var="pic">
     <a href="."><img src="<%=basePath %>uploadfile/${pic.path }" ！" width="1300px" height="250" /></a>
   </c:forEach>
+  </div>
   
     
   </div>

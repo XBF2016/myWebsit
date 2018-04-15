@@ -38,6 +38,7 @@ ddsmoothmenu.init({
   
   <div id="MainMenu" class="ddsmoothmenu">
     <ul>
+      <li><img src="images/logo.jpg" id="logoImg"></li>
       <li><a href="." title="公司主页" id="menu_selected"><span>公司主页</span></a></li>
       <li><a href="indexAction!aboutUsPage.action" title="关于我们" ><span>企业介绍</span></a> </li>
       <li><a href="indexAction!productListPage.action" title="产品展示"><span>产品中心</span></a></li>
@@ -48,7 +49,6 @@ ddsmoothmenu.init({
       <li><a href="manageAction!loginPage.action"  ><span>管理员登录</span></a></li>
     </ul>
   </div>
-  
 <script type="text/javascript">
 $(function(){
     $("#banner").KinSlideshow({
@@ -59,21 +59,20 @@ $(function(){
     });
 })
 </script>
+<HR > 
 
 <!-- js图片和图片得文字说明 -->
   <div id="banner">
   <c:forEach items="${piclist}" var="pic">
     <a href="."><img src="<%=basePath %>uploadfile/${pic.path }" ！" width="1300px" height="250" /></a>
   </c:forEach>
-  
-    
   </div>
   
   
   <div id="index_main" class="clearfix">
     <div class="index-left">
       <div class="index-newproducts">
-        <h2><span>推荐产品</span><a href="indexmethod!products.action"><img src="images/more.gif" width="32" height="5" alt="推荐产品" /></a></h2>
+        <h2><span>推荐产品</span><a href="indexAction!productListPage.action" ><button>查看全部产品</button></a></h2>
         <div class="productsroll">
          
           <ul id="ScrollBox" class="clearfix">
@@ -91,12 +90,10 @@ $(function(){
       </div>
       
       <div class="index-news">
-        <h2><span>新闻中心</span><a href="indexmethod!xinwenlist.action"><img src="images/more.gif" width="32" height="5" alt="新闻中心" /></a></h2>
+        <h2><span>新闻中心</span><a href="indexmethod!xinwenlist.action"><button>查看全部新闻</button></a></h2>
         <ul>
-        <c:forEach items="${xwlist}" var="xw">
-        
-       
-         <li><a href="indexmethod!xinwen.action?id=${xw.id }" ><span>${fn:substring(xw.created_time,0, 10)}</span>-　${xw.title }</a></li>
+          <c:forEach items="${xwlist}" var="xw">
+             <li><a href="indexmethod!xinwen.action?id=${xw.id }" ><span style="font:16px/1.5 微软雅黑,Helvetica,Arial,\5b8b\4f53">-　${xw.title }</span><span style="margin-top: 5px">${fn:substring(xw.created_time,0, 10)}</span></a></li><br/>
           </c:forEach>
         </ul>
       </div>
@@ -155,7 +152,7 @@ sitesearch.submit();
       </div>
       
       <div class="index-jobs">
-        <h2><span>招聘信息</span><a href="indexmethod!zhaopinlist.action"><img src="images/more.gif" width="32" height="5" alt="招聘信息" /></a></h2>
+        <h2><span>招聘信息</span><a href="indexmethod!zhaopinlist.action"><button>查看全部岗位</button></a></h2>
         <ul>
         
          <c:forEach items="${zlist}" var="zp">
@@ -177,10 +174,9 @@ sitesearch.submit();
       
     </div>
   </div>
-    <div id="copyright"> Copyright ©&nbsp;<a href="http://www.netgather.com" >${company.name }</a> All Rights Reserved.<br />
-    <span>地址: </span>${company.address }　<span>邮编: </span>${company.postcode }　<span>联系人: </span>${company.contact }<br />
-    <span>电话: </span>${company.tel }　<span>传真: </span>${company.fax }　<span>手机: </span>${company.phone }<br />
-    <span>邮箱: </span>${company.mailbox }
+    <div id="copyright"> Copyright ©&nbsp;<a href="http://www.ncu.edu.com" >${company.name }</a> All Rights Reserved.<br />
+    <span>地址: </span>${company.address }　<span>邮编: </span>${company.postcode }　<span>联系人: </span>${company.contact } <span>电话: </span>${company.tel }　　<br />
+    <span>传真: </span>${company.fax }  <span>手机: </span>${company.phone }  <span>邮箱: </span>${company.mailbox }
   </div>
 </div>
 </body>

@@ -9,7 +9,7 @@ a:hover{color:#008aff;text-decoration:none}
 .clearfix{display:inline-block}
 /* Hides from IE-mac \*/ 
 * html .clearfix{height:1%}
-dl.clearfix{font:16px/1.5 微软雅黑,Helvetica,Arial,\5b8b\4f53}
+dl.clearfix{font:12px/1.5 微软雅黑,Helvetica,Arial,\5b8b\4f53;}
 .clearfix{display:block} 
 /* End hide from IE-mac */
 .page_list{text-align:right;padding-top:10px}
@@ -24,14 +24,18 @@ body{background:#f6f6f6 url(../images/body_bg.gif) top repeat-x}
 #lang{position:absolute;right:15px;top:10px;z-index:1}
 #lang img{margin-right:5px;vertical-align:middle}
 #MainMenu{height:30px;padding:3px 15px 5px 15px}
-#banner{height:200px;padding:10px 12px;overflow:hidden}
+hr{    margin-top: 5px;margin-bottom: 1px;}
+#logoImg{width:30px;margin-right: 10px;}
+#banner{height:200px;padding:5px 5px;overflow:hidden;margin-left:8px}
+
 .KSS_titleBox h2{line-height:32px}
 #index_main h2{background-image:url(../images/site_title.gif);background-repeat:no-repeat;height:34px;line-height:34px;font-size:100%;font-weight:normal}
 #index_main h2 span{float:left;display:none}
-#index_main h2 a{float:right;margin:15px 10px 0px 0px}
+#index_main h2 button{cursor:pointer;margin-top:8px;float:left;left:150px;display:inline-block;position: relative;background-color: #025dbf;border: 0px;color: white;width: 80px; }
 .index-left{float:left;padding:0px 5px 0px 9px;width:1000px;overflow:hidden}
 .index-newproducts{padding-bottom:15px}
 .index-newproducts h2{background-position:0px 0px}
+
 .productsroll{position:relative;width:1000px}
 /* productsroll Start */
 #LeftArr1,#RightArr1{background-image:url(../images/product_arrow.gif);width:25px;height:130px;cursor:pointer;position:absolute;top:0px;z-index:1}
@@ -51,7 +55,7 @@ body{background:#f6f6f6 url(../images/body_bg.gif) top repeat-x}
 .index-news ul li img{float:left;margin-right:10px}
 .index-news ul li h3{font-size:100%;font-weight:bold;line-height:25px}
 .index-news ul li p{color:#666}
-.index-news ul li a span{color:#666;float:right;margin-right:10px}
+.index-news ul li a span{color:#666;float:left;margin-right:10px;}
 .index-about{float:left;width:1000px}
 .index-about h2{background-position:0px -68px}
 .index-about p{line-height:23px;padding:4px 0px 0px 5px}
@@ -126,4 +130,4 @@ body{background:#f6f6f6 url(../images/body_bg.gif) top repeat-x}
 .page-guestbook p{text-align:center;clear:both;margin-bottom:10px}
 .page-guestbook p input{height:26px;width:100px;color:#FFF;background:#025dbf;cursor:pointer;border:none}
 
-#copyright{padding:15px 0px;text-align:center}
+#copyright{padding:0px 0px;text-align:center;font:12px/1.5 微软雅黑,Helvetica,Arial,\5b8b\4f53}
