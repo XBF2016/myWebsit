@@ -63,7 +63,7 @@ $(function(){
 
 <!-- js图片和图片得文字说明 -->
   <div id="banner">
-  <c:forEach items="${piclist}" var="pic">
+  <c:forEach items="${picList}" var="pic">
     <a href="."><img src="<%=basePath %>uploadfile/${pic.path }" ！" width="1300px" height="250" /></a>
   </c:forEach>
   </div>
@@ -77,7 +77,7 @@ $(function(){
          
           <ul id="ScrollBox" class="clearfix">
           <c:forEach items="${recommendProductList}" var="recommendProduct">
-           <li><a href="indexmethod!product.action?id=${recommendProduct.id }" title="${recommendProduct.product_name }">
+           <li><a href="indexAction!productPage.action?id=${recommendProduct.id }" title="${recommendProduct.product_name }">
            <img src="uploadfile/${recommendProduct.path }" alt="${recommendProduct.product_name }" width="140" height="100" />
            <span>${recommendProduct.product_name }</span></a>
            </li>
@@ -90,10 +90,10 @@ $(function(){
       </div>
       
       <div class="index-news">
-        <h2><span>新闻中心</span><a href="indexmethod!xinwenlist.action"><button>查看全部新闻</button></a></h2>
+        <h2><span>新闻中心</span><a href="indexAction!newsListPage.action"><button>查看全部新闻</button></a></h2>
         <ul>
-          <c:forEach items="${xwlist}" var="xw">
-             <li><a href="indexmethod!xinwen.action?id=${xw.id }" ><span style="font:16px/1.5 微软雅黑,Helvetica,Arial,\5b8b\4f53">-　${xw.title }</span><span style="margin-top: 5px">${fn:substring(xw.created_time,0, 10)}</span></a></li><br/>
+          <c:forEach items="${newsList}" var="news">
+             <li><a href="indexAction!newsPage.action?id=${news.id }" ><span style="font:16px/1.5 微软雅黑,Helvetica,Arial,\5b8b\4f53">-　${news.title }</span><span style="margin-top: 5px">${fn:substring(news.created_time,0, 10)}</span></a></li><br/>
           </c:forEach>
         </ul>
       </div>
@@ -104,59 +104,53 @@ $(function(){
     <div class="index-right">
       
       <script type="text/javascript">
-function fromfrom(){
-var searchid = document.getElementById("searchid").value;
+function serch(){
+	var searchType = document.getElementById("searchType").value;
+	var siteSearch = document.getElementById("siteSearch");
 
-if("2"==searchid){
+	if("product"==searchType){
+	siteSearch.action="indexAction!productListPage.action";
+	siteSearch.submit();
+	}
 
-sitesearch.action="indexmethod!products.action";
-sitesearch.submit();
+	if("news"==searchType){
+	siteSearch.action="indexAction!newsListPage.action";
+	siteSearch.submit();
+	}
 
+	if("recruit"==searchType){
+	siteSearch.action="indexAction!recruitListPage.action";
+	siteSearch.submit();
+	}
 }
-
-if("3"==searchid){
-
-sitesearch.action="indexmethod!xinwenlist.action";
-sitesearch.submit();
-
-}
-
-if("4"==searchid){
-
-sitesearch.action="indexmethod!zhaopinlist.action";
-sitesearch.submit();
-
-}
-
-}
-
 </script>
       
+      <!-- 站内搜索 -->
       <div class="index-search">
         <h2><span>站内搜索</span></h2>
-        <form action="" method="post" id="sitesearch" name="sitesearch">
+        <form method="post" id="siteSearch" name="siteSearch">
           <p>
-            <select name="searchid" id="searchid">
-            <option value="2">产品展示</option>
-            <option value="3">新闻中心</option>
-            <option value="4">招聘信息</option>
+            <select name="searchType" id="searchType">
+            <option value="product">产品展示</option>
+            <option value="news">新闻中心</option>
+            <option value="recruit">招聘信息</option>
             </select>
           </p>
           <p>
-            <input name="searchtext" value="${searchtext }" type="text" id="searchtext"/>
+            <input name="searchText" value="${searchText}" type="text" id="searchtext"/>
           </p>
           <p>
-            <input name="searchbutton" type="submit" id="searchbutton" value="" onclick="fromfrom()" />
+            <input name="searchButton" type="submit" id="searchbutton" value="" onclick="serch()" />
           </p>
         </form>
       </div>
       
       <div class="index-jobs">
-        <h2><span>招聘信息</span><a href="indexmethod!zhaopinlist.action"><button>查看全部岗位</button></a></h2>
+        <h2><span>招聘信息</span><a href="indexAction!recruitListPage.action"><button>查看全部岗位</button></a></h2>
         <ul>
         
-         <c:forEach items="${zlist}" var="zp">
-          <li><a href="indexmethod!zhaopin.action?id=${zp.id }" ><span>　-　${zp.position }</span></a></li>
+         <c:forEach items="${recruitList}" var="recruit">
+          <li><a href="indexAction!recruitPage.action?id=${recruit.id }" ><span>　-　${recruit.position }</span></a></li>
           </c:forEach>
           
         </ul>

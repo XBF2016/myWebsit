@@ -36,6 +36,8 @@ hr{    margin-top: 5px;margin-bottom: 1px;}
 .index-newproducts{padding-bottom:15px}
 .index-newproducts h2{background-position:0px 0px}
 
+.page-single input{cursor:pointer;margin-top:8px;float:left;left:0px;display:inline-block;position: relative;background-color: #025dbf;border: 0px;color: white;width: 50px; }
+
 .productsroll{position:relative;width:1000px}
 /* productsroll Start */
 #LeftArr1,#RightArr1{background-image:url(../images/product_arrow.gif);width:25px;height:130px;cursor:pointer;position:absolute;top:0px;z-index:1}
@@ -99,7 +101,7 @@ hr{    margin-top: 5px;margin-bottom: 1px;}
 .left-contact p{line-height:25px;padding:0px 5px 0px 10px}
 .left-contact p span{font-weight:bold}
 /* page-right */
-.page-right{float:right;padding:0px 15px 0px 10px;width:960px;overflow:hidden}
+.page-right{float:right;padding:0px 15px 0px 10px;width:1000px;overflow:hidden}
 .site-nav{background:url(../images/site_nav.gif) no-repeat left center;border-bottom:1px solid #CCC;height:30px;margin-bottom:10px;line-height:30px;text-align:right}
 .site-nav span{color:#025dbf;font-weight:bold}
 .page-single,.page-products,.page-news,.page-newsdetail,.page-jobs,.page-jobsdetail{margin-bottom:10px}

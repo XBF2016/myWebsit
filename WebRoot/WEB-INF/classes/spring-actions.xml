@@ -26,6 +26,7 @@
 
 		<property name="picDao"><ref bean="picDao" /></property>
 		<property name="companyDao"><ref bean="companyDao" /></property>
+		<property name="serviceDao"><ref bean="serviceDao" /></property>
 		<property name="productDao"><ref bean="productDao" /></property>
 		<property name="newsDao"><ref bean="newsDao" /></property>
 		<property name="recruitDao"><ref bean="recruitDao" /></property>

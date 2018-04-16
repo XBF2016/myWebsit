@@ -31,13 +31,13 @@ ddsmoothmenu.init({
 <body>
 <div id="wrapper">
   
-<div id="MainMenu" class="ddsmoothmenu">
+    <div id="MainMenu" class="ddsmoothmenu">
     <ul>
       <li><img src="images/logo.jpg" id="logoImg"></li>
-      <li><a href="index.action" title="公司主页" ><span>公司主页</span></a></li>
-      <li><a href="indexAction!aboutUsPage.action" title="企业介绍" id="menu_selected"><span>企业介绍</span></a> </li>
-      <li><a href="indexAction!productListPage.action" title="产品中心"><span>产品中心</span></a></li>
-      <li><a href="indexAction!newsListPage.action" title="新闻中心"><span>新闻中心</span></a></li>
+      <li><a href="." title="公司主页" ><span>公司主页</span></a></li>
+      <li><a href="indexAction!aboutUsPage.action" title="关于我们" ><span>企业介绍</span></a> </li>
+      <li><a href="indexAction!productListPage.action" title="产品展示"><span>产品中心</span></a></li>
+      <li><a href="indexAction!newsListPage.action" title="新闻中心" id="menu_selected"><span>新闻中心</span></a></li>
       <li><a href="indexAction!recruitListPage.action" title="招聘信息"><span>招聘信息</span></a></li>
       <li><a href="indexAction!serviceSupportPage.action" title="服务支持"><span>服务支持</span></a></li>
       <li><a href="indexAction!feedbackPage.action" title="留言反馈"><span>留言反馈</span></a></li>
@@ -55,7 +55,7 @@ $(function(){
     });
 })
 </script>
-<hr/>
+
 <!-- js图片和图片得文字说明 -->
   <div id="banner">
   <c:forEach items="${picList}" var="pic">
@@ -63,20 +63,24 @@ $(function(){
   </c:forEach>
   </div>
   
-    
-  </div>
-  
-  
   
   
   
   <div id="page_main" class="clearfix">
     <div class="page-right">
-      <div class="site-nav"><span>当前位置 : </span><a href=".">公司主页</a> &gt;&gt; <a href="indexmethod!single.action" title="企业介绍">企业介绍</a></div>
-      <div class="page-single">
+       <div class="site-nav"><span>当前位置 : </span><a href=".">公司主页</a> &gt;&gt; <a href="indexAction!serviceSupportPage.action" title="服务支持中心">服务支持中心</a>&gt;&gt;网点详情</div>
+     <div class="page-single">
 <p style="LINE-HEIGHT: 25px">
-${company.info }
-</p>
+<input  type="button" value="返回"  onclick="javascript:history.go(-1);" /><br/>
+<h1 style="color: #008aff">${service.name }</h1>
+          <p><span>地址: </span>${service.address }<br />
+          <span>邮编: </span>${service.postcode }<br />
+          <span>联系人: </span>${service.contact }<br />
+          <span>电话: </span>${service.tel }<br />
+          <span>传真: </span>${service.fax }<br />
+          <span>手机: </span>${service.phone }<br />
+          <span>邮箱: </span>${service.mailbox }
+          </p>
       </div>
     </div>
     
@@ -124,7 +128,7 @@ function serch(){
         </form>
       </div>
       <div class="left-contact">
-        <h2><span>联系我们</span></h2>
+         <h2><span>联系我们</span></h2>
         <p><span>地址: </span>${company.address }<br />
           <span>邮编: </span>${company.postcode }<br />
           <span>联系人: </span>${company.contact }<br />

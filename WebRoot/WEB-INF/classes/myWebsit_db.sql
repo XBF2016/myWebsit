@@ -66,6 +66,22 @@ CREATE TABLE `t_company` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Table structure for t_service
+-- ----------------------------
+CREATE TABLE `t_service` (
+  `id` int(11) NOT NULL auto_increment COMMENT '主键',
+  `fax` varchar(255) default NULL COMMENT '传真',
+  `tel` varchar(255) default NULL COMMENT '电话',
+  `address` varchar(255) default NULL COMMENT '地址',
+  `contact` varchar(255) default NULL COMMENT '联系人',
+  `name` varchar(255) default NULL COMMENT '网点',
+  `phone` varchar(255) default NULL COMMENT '手机',
+  `postcode` varchar(255) default NULL COMMENT '邮编',
+  `mailbox` varchar(255) default NULL COMMENT '邮箱',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
 -- Table structure for t_user
 -- ----------------------------
 CREATE TABLE `t_user` (
@@ -82,6 +98,7 @@ CREATE TABLE `t_user` (
 CREATE TABLE `t_news` (
   `id` int(11) NOT NULL auto_increment COMMENT '主键',
   `title` varchar(255) default NULL COMMENT '标题',
+  `picPath` varchar(255) default NULL COMMENT '图片路径',
   `created_time` varchar(255) default NULL COMMENT '添加时间',
   `content` text COMMENT '内容',
   `is_recommend` varchar(255) default NULL COMMENT '是否推荐',

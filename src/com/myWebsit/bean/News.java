@@ -15,6 +15,8 @@ public class News {
 	
 	private String title;//标题
 	
+	private String picPath;//图片路径
+	
 	@Column(name="content", columnDefinition="TEXT")
 	private String content;//内容
 	
@@ -36,6 +38,14 @@ public class News {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getPicPath() {
+		return picPath;
+	}
+
+	public void setPicPath(String picPath) {
+		this.picPath = picPath;
 	}
 
 	public String getContent() {

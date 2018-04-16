@@ -16,8 +16,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import com.myWebsit.bean.Pic;
 import com.myWebsit.bean.Company;
 import com.myWebsit.bean.User;
+import com.myWebsit.dao.PicDao;
 import com.myWebsit.dao.CompanyDao;
 import com.myWebsit.dao.UserDao;
 
@@ -100,6 +102,7 @@ public class Util {
 				.getWebApplicationContext(request.getSession()
 						.getServletContext());
 		UserDao userDao = (UserDao) app.getBean("userDao");
+		PicDao picDao = (PicDao) app.getBean("picDao");
 		CompanyDao companyDao = (CompanyDao) app.getBean("companyDao");
 		
 		User user = userDao
@@ -111,6 +114,20 @@ public class Util {
 			user.setUsername("admin");
 			userDao.insertBean(user);
 			
+			Pic p1 = new Pic();
+			p1.setPath("banner01.jpg");
+			p1.setInfo("展示图片一");
+			picDao.insertBean(p1);
+			
+			Pic p2 = new Pic();
+			p2.setPath("banner02.jpg");
+			p2.setInfo("展示图片二");
+			picDao.insertBean(p2);
+			
+			Pic p3 = new Pic();
+			p3.setPath("banner03.jpg");
+			p3.setInfo("展示图片三");
+			picDao.insertBean(p3);
 			
 			Company q = new Company();
 			q.setFax("未初始化");

@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -31,11 +31,12 @@ ddsmoothmenu.init({
 <body>
 <div id="wrapper">
   
-    <div id="MainMenu" class="ddsmoothmenu">
+   <div id="MainMenu" class="ddsmoothmenu">
     <ul>
-      <li><a href="." title="公司主页" id="menu_selected"><span>公司主页</span></a></li>
-      <li><a href="indexAction!aboutUsPage.action" title="关于我们" ><span>企业介绍</span></a> </li>
-      <li><a href="indexAction!productListPage.action" title="产品展示"><span>产品中心</span></a></li>
+    <li><img src="images/logo.jpg" id="logoImg"></li>
+     <li><a href="index.action" title="公司主页" ><span>公司主页</span></a></li>
+      <li><a href="indexAction!aboutUsPage.action" title="企业介绍" ><span>企业介绍</span></a> </li>
+      <li><a href="indexAction!productListPage.action" title="产品中心" id="menu_selected"><span>产品中心</span></a></li>
       <li><a href="indexAction!newsListPage.action" title="新闻中心"><span>新闻中心</span></a></li>
       <li><a href="indexAction!recruitListPage.action" title="招聘信息"><span>招聘信息</span></a></li>
       <li><a href="indexAction!serviceSupportPage.action" title="服务支持"><span>服务支持</span></a></li>
@@ -54,83 +55,84 @@ $(function(){
     });
 })
 </script>
-
+<HR > 
 <!-- js图片和图片得文字说明 -->
   <div id="banner">
-  <c:forEach items="${piclist}" var="pic">
+  <c:forEach items="${picList}" var="pic">
     <a href="."><img src="<%=basePath %>uploadfile/${pic.path }" ！" width="1300px" height="250" /></a>
   </c:forEach>
   </div>
   
   
   
-  
   <div id="page_main" class="clearfix">
     <div class="page-right">
-       <div class="site-nav"><span>当前位置 : </span><a href=".">公司主页</a> &gt;&gt; <a href="indexmethod!xinwenlist.action" title="新闻中心">新闻中心</a>&gt;&gt;新闻详情</div>
-     <div class="page-single">
-<p style="LINE-HEIGHT: 25px">
-<input  type="button" value="返回"  onclick="javascript:history.go(-1);" /><br/>
-标题：${xinwen.biaoti }<br/><br/>
-
-内容：${xinwen.neirong }<br/>
-
-<input  type="button" value="返回"  onclick="javascript:history.go(-1);" /><br/>
-</p>
+      <div class="site-nav"><span>当前位置 : </span><a href=".">公司主页</a> &gt;&gt; <a href="indexAction!serviceSupportPage.action" title="服务支持中心">服务支持中心</a></div>
+     
+     <h1 style="color: #008aff">销售和技术支持网点列表</h1>
+     
+     <div class="page-news">
+      <table border="0" align="center">
+      <tr><th class="news-time">网点名称</th><th class="news-title">网点地址</th><th class="news-title">联系方式</th></tr>
+<c:forEach items="${serviceList}" var="service">
+<tr><td class="time-list"><span>${service.name}</span></td><td class="time-list" align="center"><a href="indexAction!serviceDetailPage.action?id=${service.id }" >${fn:substring(service.address,0, 10)}</a></td><td class="time-list"><span>${service.phone}</span></td></tr>
+</c:forEach>
+      </table>
+      
+      
+<div class="page_list"><div class="list_info">
+${pagerinfo }
+</div></div>
       </div>
+     
     </div>
-    
     <div class="page-left">
       
-      <script type="text/javascript">
-function fromfrom(){
-var searchid = document.getElementById("searchid").value;
+       <script type="text/javascript">
+function serch(){
+	var searchType = document.getElementById("searchType").value;
+	var siteSearch = document.getElementById("siteSearch");
 
-if("2"==searchid){
+	if("product"==searchType){
+	siteSearch.action="indexAction!productListPage.action";
+	siteSearch.submit();
+	}
 
-sitesearch.action="indexmethod!products.action";
-sitesearch.submit();
+	if("news"==searchType){
+	siteSearch.action="indexAction!newsListPage.action";
+	siteSearch.submit();
+	}
 
+	if("recruit"==searchType){
+	siteSearch.action="indexAction!recruitListPage.action";
+	siteSearch.submit();
+	}
 }
-
-if("3"==searchid){
-
-sitesearch.action="indexmethod!xinwenlist.action";
-sitesearch.submit();
-
-}
-
-if("4"==searchid){
-
-sitesearch.action="indexmethod!zhaopinlist.action";
-sitesearch.submit();
-
-}
-
-}
-
 </script>
       
+      <!-- 站内搜索 -->
       <div class="index-search">
         <h2><span>站内搜索</span></h2>
-        <form action="" method="post" id="sitesearch" name="sitesearch">
+        <form method="post" id="siteSearch" name="siteSearch">
           <p>
-            <select name="searchid" id="searchid">
-            <option value="2">产品展示</option>
-            <option value="3">新闻中心</option>
-            <option value="4">招聘信息</option>
+            <select name="searchType" id="searchType">
+            <option value="product">产品展示</option>
+            <option value="news">新闻中心</option>
+            <option value="recruit">招聘信息</option>
             </select>
           </p>
           <p>
-            <input name="searchtext"  value="${searchtext }" type="text" id="searchtext"/>
+            <input name="searchText" value="${searchText }" type="text" id="searchtext"/>
           </p>
           <p>
-            <input name="searchbutton" type="submit" id="searchbutton" value="" onclick="fromfrom()" />
+            <input name="searchButton" type="submit" id="searchbutton" value="" onclick="serch()" />
           </p>
         </form>
       </div>
+      
+      
       <div class="left-contact">
-         <h2><span>联系我们</span></h2>
+       <h2><span>联系我们</span></h2>
         <p><span>地址: </span>${company.address }<br />
           <span>邮编: </span>${company.postcode }<br />
           <span>联系人: </span>${company.contact }<br />
@@ -142,10 +144,9 @@ sitesearch.submit();
       
     </div>
   </div>
-    <div id="copyright"> Copyright ©&nbsp;<a href="http://www.netgather.com" >${company.name }</a> All Rights Reserved.<br />
-    <span>地址: </span>${company.address }　<span>邮编: </span>${company.postcode }　<span>联系人: </span>${company.contact }<br />
-    <span>电话: </span>${company.tel }　<span>传真: </span>${company.fax }　<span>手机: </span>${company.phone }<br />
-    <span>邮箱: </span>${company.mailbox }
+    <div id="copyright"> Copyright ©&nbsp;<a href="http://www.ncu.edu.com" >${company.name }</a> All Rights Reserved.<br />
+    <span>地址: </span>${company.address }　<span>邮编: </span>${company.postcode }　<span>联系人: </span>${company.contact } <span>电话: </span>${company.tel }　　<br />
+    <span>传真: </span>${company.fax }  <span>手机: </span>${company.phone }  <span>邮箱: </span>${company.mailbox }
   </div>
 </div>
 </body>

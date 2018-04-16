@@ -22,6 +22,10 @@
 		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
 	</bean>
 	
+	<bean id="serviceDao" class="com.myWebsit.dao.impl.ServiceDaoImpl" >
+		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
+	</bean>
+	
 	<bean id="productDao" class="com.myWebsit.dao.impl.ProductDaoImpl" >
 		<property name="sessionFactory"><ref bean="sessionFactory" /></property>
 	</bean>

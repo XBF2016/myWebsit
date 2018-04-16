@@ -59,7 +59,7 @@ $(function(){
 <hr/>
 <!-- js图片和图片得文字说明 -->
   <div id="banner">
-  <c:forEach items="${piclist}" var="pic">
+  <c:forEach items="${picList}" var="pic">
     <a href="."><img src="<%=basePath %>uploadfile/${pic.path }" ！" width="1300px" height="250" /></a>
   </c:forEach>
   </div>
@@ -67,13 +67,14 @@ $(function(){
   
   <div id="page_main" class="clearfix">
     <div class="page-right">
-      <div class="site-nav"><span>当前位置 : </span><a href=".">公司主页</a> &gt;&gt; <a href="indexmethod!zhaopinlist.action" title="招聘信息">招聘信息</a></div>
+      <div class="site-nav"><span>当前位置 : </span><a href=".">公司主页</a> &gt;&gt; <a href="indexAction!recruitListPage.action" title="招聘信息">招聘信息</a></div>
+      <h1 style="color: #008aff">招聘信息</h1>
       <div class="page-news">
       <table border="0" align="center">
       <tr><th class="news-time">日期</th><th class="news-title">招聘岗位</th></tr>
-<c:forEach items="${list}"  var="zp">
+<c:forEach items="${recruitList}"  var="recruit">
 
-<tr><td class="time-list"><span>${fn:substring(zp.created_time,0, 10)}</span></td><td align="center"><a href="indexmethod!zhaopin.action?id=${zp.id }" >${zp.position }</a></td></tr>
+<tr><td class="time-list"><span>${fn:substring(recruit.created_time,0, 10)}</span></td><td align="center"><a href="indexAction!recruitPage.action?id=${recruit.id }" >${recruit.position }</a></td></tr>
 </c:forEach>
       </table>
 <div class="page_list"><div class="list_info">
@@ -82,50 +83,44 @@ ${pagerinfo }
       </div>
     </div>
     <div class="page-left">
-      <script type="text/javascript">
-function fromfrom(){
-var searchid = document.getElementById("searchid").value;
+       <script type="text/javascript">
+function serch(){
+	var searchType = document.getElementById("searchType").value;
+	var siteSearch = document.getElementById("siteSearch");
 
-if("2"==searchid){
+	if("product"==searchType){
+	siteSearch.action="indexAction!productListPage.action";
+	siteSearch.submit();
+	}
 
-sitesearch.action="indexmethod!products.action";
-sitesearch.submit();
+	if("news"==searchType){
+	siteSearch.action="indexAction!newsListPage.action";
+	siteSearch.submit();
+	}
 
+	if("recruit"==searchType){
+	siteSearch.action="indexAction!recruitListPage.action";
+	siteSearch.submit();
+	}
 }
-
-if("3"==searchid){
-
-sitesearch.action="indexmethod!xinwenlist.action";
-sitesearch.submit();
-
-}
-
-if("4"==searchid){
-
-sitesearch.action="indexmethod!zhaopinlist.action";
-sitesearch.submit();
-
-}
-
-}
-
 </script>
       
+      <!-- 站内搜索 -->
       <div class="index-search">
         <h2><span>站内搜索</span></h2>
-        <form action="" method="post" id="sitesearch" name="sitesearch">
+        <form method="post" id="siteSearch" name="siteSearch">
           <p>
-            <select name="searchid" id="searchid">
-            <option value="2">产品展示</option>
-            <option value="3">新闻中心</option>
-            <option value="4">招聘信息</option>
+            <select name="searchType" id="searchType">
+            <option value="product">产品展示</option>
+            <option value="news">新闻中心</option>
+            <option value="recruit">招聘信息</option>
             </select>
           </p>
           <p>
-            <input name="searchtext"  value="${searchtext }" type="text" id="searchtext"/>
+            <input name="searchText" value="${searchText }" type="text" id="searchtext"/>
           </p>
           <p>
-            <input name="searchbutton" type="submit" id="searchbutton" value="" onclick="fromfrom()" />
+            <input name="searchButton" type="submit" id="searchbutton" value="" onclick="serch()" />
           </p>
         </form>
       </div>
