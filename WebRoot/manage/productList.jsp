@@ -59,9 +59,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           
          
             <div>
-           <form action="${url }" method="post">
+           <form action="${url}" method="post">
 <a href="${url2 }add.action"><span style="font-size: 20px;font-weight: bold;">添加新产品</span></a>
-            产品名：<input type="text" name="pname"  value="${pname }"/>
+            产品名：<input type="text" name="productName"  value="${productName }"/>
          
             <input type="submit" value="查询" />
             </form>
@@ -83,23 +83,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </thead>
             
             <tbody>
-            <c:forEach items="${list}" var="bean">
+            <c:forEach items="${productList}" var="product">
               <tr>
                 
-                <td>${bean.pname }</td>
+                <td>${product.product_name }</td>
               
-                <td>${bean.tuijian }</td>
-                <td>${bean.createtime }</td>
                 <td>
-                 <a href="${url2 }update.action?id=${bean.id }">修改</a> &nbsp; 
-                 <a href="${url2 }update3.action?id=${bean.id }">查看</a> &nbsp;
-                 <c:if test="${bean.tuijian=='未推荐'}">
-                 <a href="${url2 }delete2.action?id=${bean.id }">推荐</a> &nbsp;
+                <c:if test="${product.is_recommend=='不推荐'}">
+                                                                否 &nbsp;
                  </c:if>
-                  <c:if test="${bean.tuijian=='推荐'}">
-                 <a href="${url2 }delete3.action?id=${bean.id }">取消推荐</a> &nbsp;
+                  <c:if test="${product.is_recommend=='推荐'}">
+                                                               是  &nbsp;
                  </c:if>
-                 <a href="${url2 }delete.action?id=${bean.id }">删除</a> &nbsp;
+                </td>
+                <td>${product.created_time }</td>
+                <td>
+                 <a href="${url2 }update.action?id=${product.id }">修改</a> &nbsp; 
+                 <a href="${url2 }update3.action?id=${product.id }">查看</a> &nbsp;
+                 <c:if test="${product.is_recommend=='不推荐'}">
+                 <a href="${url2 }RecommendChange.action?id=${product.id }&flag=0">推荐</a> &nbsp;
+                 </c:if>
+                  <c:if test="${product.is_recommend=='推荐'}">
+                 <a href="${url2 }RecommendChange.action?id=${product.id }&flag=1">取消推荐</a> &nbsp;
+                 </c:if>
+                 <a href="${url2 }delete.action?id=${product.id }">删除</a> &nbsp;
                  </td>
               </tr>
               </c:forEach>

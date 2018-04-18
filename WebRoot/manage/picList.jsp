@@ -78,9 +78,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <tr>
                 
                 <td>
-                <img src="<%=basePath %>uploadfile/${pic.path }" width="300" height="50" />
+                <img src="<%=basePath %>uploadfile/${pic.path }" width="600" height="100" />
                 </td>
-                <td><a href="#" title="title">${pic.info }</a></td>
+                <td><span>${pic.info }</span></td>
                 <td>
                 <a href="manageAction!picUpdatePage.action?id=${pic.id }">修改</a> &nbsp; &nbsp; &nbsp;
                 </td>

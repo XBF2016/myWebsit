@@ -3,6 +3,7 @@ package com.myWebsit.action;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -173,7 +174,7 @@ public class ManageAction extends ActionSupport {
 		response.setCharacterEncoding("gbk");
 		response.setContentType("text/html; charset=gbk");
 		response.getWriter()
-				.print("<script language=javascript>alert('success!');window.location.href='method!piclist.action';</script>");
+				.print("<script language=javascript>alert('success!');window.location.href='manageAction!picListPage.action';</script>");
 	}
 
 	private File uploadfile;
@@ -213,18 +214,24 @@ public class ManageAction extends ActionSupport {
 	}
 
 	// 跳转到更新企业信息页面
-	public String qiyeupdate() {
+	public String companyUpdatePage() {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		Company bean = companyDao.selectBean(" where id= 1");
-		request.setAttribute("bean", bean);
-		request.setAttribute("url", "method!qiyeupdate2.action?id=1");
+		Company company = null;
+		List<Company> companyList = companyDao
+				.selectBeanList(0, 1, "where 1=1");
+		if (companyList != null && companyList.size() > 0) {
+			company = companyList.get(0);
+		}
+		request.setAttribute("company", company);
+		request.setAttribute("url", "manageAction!companyUpdate.action?id="
+				+ company.getId());
 		request.setAttribute("title", "企业信息修改");
-		this.setUrl("qiyeupdate.jsp");
+		this.setUrl("companyUpdate.jsp");
 		return SUCCESS;
 	}
 
-	// 更新首页图片操作
-	public void qiyeupdate2() throws IOException {
+	// 更新公司信息
+	public void companyUpdate() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String fax = request.getParameter("fax");
 		String tel = request.getParameter("tel");
@@ -234,7 +241,7 @@ public class ManageAction extends ActionSupport {
 		String phone = request.getParameter("phone");
 		String postcode = request.getParameter("postcode");
 		String mailbox = request.getParameter("mailbox");
-		String company_name = request.getParameter("company_name");
+		String name = request.getParameter("name");
 
 		Company bean = companyDao.selectBean(" where id= "
 				+ request.getParameter("id"));
@@ -246,7 +253,7 @@ public class ManageAction extends ActionSupport {
 		bean.setPhone(phone);
 		bean.setPostcode(postcode);
 		bean.setMailbox(mailbox);
-		bean.setName(company_name);
+		bean.setName(name);
 		if (uploadfile != null) {
 			String savaPath = ServletActionContext.getServletContext()
 					.getRealPath("/") + "/uploadfile/";
@@ -264,7 +271,7 @@ public class ManageAction extends ActionSupport {
 		response.setCharacterEncoding("gbk");
 		response.setContentType("text/html; charset=gbk");
 		response.getWriter()
-				.print("<script language=javascript>alert('success!');window.location.href='method!qiyeupdate.action';</script>");
+				.print("<script language=javascript>alert('success!');window.location.href='manageAction!companyUpdatePage.action';</script>");
 	}
 
 	private ProductDao productDao;
@@ -278,21 +285,21 @@ public class ManageAction extends ActionSupport {
 	}
 
 	// 产品列表
-	public String productlist() {
+	public String productListPage() {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		String pname = request.getParameter("pname");
+		String productName = request.getParameter("productName");
 
 		StringBuffer sb = new StringBuffer();
 		sb.append(" where ");
 
-		if (pname != null && !"".equals(pname)) {
+		if (productName != null && !"".equals(productName)) {
 
-			sb.append("pname like '%" + pname + "%'");
+			sb.append("product_name like '%" + productName + "%'");
 			sb.append(" and ");
-			request.setAttribute("pname", pname);
+			request.setAttribute("productName", productName);
 		}
 
-		sb.append("   1=1 order by tuijian ,id desc ");
+		sb.append("   1=1 order by is_recommend ,id desc ");
 		String where = sb.toString();
 
 		int currentpage = 1;
@@ -302,14 +309,15 @@ public class ManageAction extends ActionSupport {
 		}
 		int total = productDao.selectBeanCount(where.replaceAll(
 				" order by id desc ", ""));
-		request.setAttribute("list", productDao.selectBeanList(
+		request.setAttribute("productList", productDao.selectBeanList(
 				(currentpage - 1) * pagesize, pagesize, where));
 		request.setAttribute("pagerinfo", Pager.getPagerNormal(total, pagesize,
-				currentpage, "method!productlist.action", "共有" + total + "条记录"));
-		request.setAttribute("url", "method!productlist.action");
-		request.setAttribute("url2", "method!product");
+				currentpage, "manageAction!productListPage.action", "共有"
+						+ total + "条记录"));
+		request.setAttribute("url", "manageAction!productListPage.action");
+		request.setAttribute("url2", "manageAction!product");
 		request.setAttribute("title", "产品管理");
-		this.setUrl("productlist.jsp");
+		this.setUrl("productList.jsp");
 		return SUCCESS;
 
 	}
@@ -422,32 +430,23 @@ public class ManageAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-	// 推荐产品操作
-	public void productdelete2() throws IOException {
+	// 推荐状态修改
+	public void productRecommendChange() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Product bean = productDao.selectBean(" where id= "
 				+ request.getParameter("id"));
-		bean.setIs_recommend("推荐");
+		String flag = request.getParameter("flag");
+		if ("0".equals(flag)) {
+			bean.setIs_recommend("推荐");
+		} else if ("1".equals(flag)) {
+			bean.setIs_recommend("不推荐");
+		}
 		productDao.updateBean(bean);
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("gbk");
 		response.setContentType("text/html; charset=gbk");
 		response.getWriter()
-				.print("<script language=javascript>alert('success!');window.location.href='method!productlist.action';</script>");
-	}
-
-	// 取消推荐产品操作
-	public void productdelete3() throws IOException {
-		HttpServletRequest request = ServletActionContext.getRequest();
-		Product bean = productDao.selectBean(" where id= "
-				+ request.getParameter("id"));
-		bean.setIs_recommend("未推荐");
-		productDao.updateBean(bean);
-		HttpServletResponse response = ServletActionContext.getResponse();
-		response.setCharacterEncoding("gbk");
-		response.setContentType("text/html; charset=gbk");
-		response.getWriter()
-				.print("<script language=javascript>alert('success!');window.location.href='method!productlist.action';</script>");
+				.print("<script language=javascript>alert('success!');window.location.href='manageAction!productListPage.action';</script>");
 	}
 
 	private NewsDao newsDao;

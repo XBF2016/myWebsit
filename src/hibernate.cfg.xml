@@ -20,7 +20,7 @@
 		
 		 <!-- Echo all executed SQL to stdout -->
 	  
-        <property name="show_sql">false</property>
+        <property name="show_sql">true</property>
         <property name="format_sql">true</property>
 	
 		
@@ -34,10 +34,9 @@
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		
 		
-
+	     <mapping class="com.myWebsit.bean.Company"/>
 		<mapping class="com.myWebsit.bean.User"/>
 		<mapping class="com.myWebsit.bean.Pic"/>
-		<mapping class="com.myWebsit.bean.Company"/>
 		<mapping class="com.myWebsit.bean.Service"/>
 		<mapping class="com.myWebsit.bean.Product"/>
 		<mapping class="com.myWebsit.bean.News"/>

@@ -26,13 +26,13 @@
         <li> <a href="#" class="nav-top-item">基本信息管理</a>
           <ul>
             <li><a href="manageAction!picListPage.action">首页展示图片管理</a></li>
-            <li><a href="manageAction!qiyeupdate.action">企业信息管理</a></li>
+            <li><a href="manageAction!companyUpdatePage.action">企业信息管理</a></li>
           </ul>
         </li>
         
          <li> <a href="#" class="nav-top-item">产品信息管理</a>
           <ul>
-            <li><a href="manageAction!productlist.action">产品信息管理</a></li>
+            <li><a href="manageAction!productListPage.action">产品信息管理</a></li>
         
           </ul>
         </li>
@@ -40,14 +40,14 @@
         
         <li> <a href="#" class="nav-top-item">新闻信息管理</a>
           <ul>
-            <li><a href="manageAction!xinwenlist.action">新闻信息管理</a></li>
+            <li><a href="manageAction!newsListPage.action">新闻信息管理</a></li>
         
           </ul>
         </li>
         
         <li> <a href="#" class="nav-top-item">招聘信息管理</a>
           <ul>
-            <li><a href="manageAction!zhaopinlist.action">招聘信息管理</a></li>
+            <li><a href="manageAction!recruitListPage.action">招聘信息管理</a></li>
         
           </ul>
         </li>

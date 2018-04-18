@@ -51,7 +51,7 @@ CREATE TABLE `t_product` (
 -- Table structure for t_company
 -- ----------------------------
 CREATE TABLE `t_company` (
-  `id` int(11) NOT NULL auto_increment COMMENT '主键',
+  `id` int(11) NOT NULL  COMMENT '主键',
   `fax` varchar(255) default NULL COMMENT '传真',
   `tel` varchar(255) default NULL COMMENT '电话',
   `address` varchar(255) default NULL COMMENT '地址',

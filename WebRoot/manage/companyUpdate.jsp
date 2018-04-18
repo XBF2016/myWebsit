@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
             <p>
               <label>企业logo</label>
-             <img src="<%=basePath %>uploadfile/${bean.logo }" width="150" height="150" />
+             <img src="<%=basePath %>uploadfile/${company.logo }" width="150" height="150" />
               
             </p>
             
@@ -72,48 +72,48 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
               <p>
               <label>企业名称</label>
-              <input class="text-input small-input" type="text"  name="mingchen" value="${bean.mingchen }" />
+              <input class="text-input small-input" type="text"  name="name" value="${company.name }" />
             </p>
             
             
             <p>
               <label>地址</label>
-              <input class="text-input small-input" type="text"  name="dizhi" value="${bean.dizhi }" />
+              <input class="text-input small-input" type="text"  name="address" value="${company.address }" />
             </p>
             
              <p>
               <label>邮编</label>
-              <input class="text-input small-input" type="text"  name="youbian" value="${bean.youbian }" />
+              <input class="text-input small-input" type="text"  name="postcode" value="${company.postcode }" />
             </p>
             
              <p>
               <label>联系人</label>
-              <input class="text-input small-input" type="text"  name="lianxiren" value="${bean.lianxiren }" />
+              <input class="text-input small-input" type="text"  name="contact" value="${company.contact }" />
             </p>
             
              <p>
               <label>电话</label>
-              <input class="text-input small-input" type="text"  name="dianhua"  value="${bean.dianhua }"/>
+              <input class="text-input small-input" type="text"  name="tel"  value="${company.tel }"/>
             </p>
             
             <p>
               <label>传真</label>
-              <input class="text-input small-input" type="text"  name="chuanzhen"  value="${bean.chuanzhen }"/>
+              <input class="text-input small-input" type="text"  name="fax"  value="${company.fax }"/>
             </p>
             
              <p>
               <label>手机</label>
-              <input class="text-input small-input" type="text"  name="shouji" value="${bean.shouji }" />
+              <input class="text-input small-input" type="text"  name="phone" value="${company.phone }" />
             </p>
             
              <p>
               <label>邮箱</label>
-              <input class="text-input small-input" type="text"  name="youxiang"  value="${bean.youxiang }"/>
+              <input class="text-input small-input" type="text"  name="mailbox"  value="${company.mailbox }"/>
             </p>
             
              <p>
               <label>企业简介</label>
-              <textarea  name="jianjie" cols="79" rows="15">${bean.jianjie }</textarea>
+              <textarea  name="info" style="width: 500px" cols="40" rows="10">${company.info }</textarea>
             </p>
             
             
