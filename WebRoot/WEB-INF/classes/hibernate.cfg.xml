@@ -12,6 +12,8 @@
 		<property name="connection.provider_class">
 			org.hibernate.connection.ProxoolConnectionProvider
 		</property>
+		
+		<property name="connection.autocommit">true</property>
        
        
 		

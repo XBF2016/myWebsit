@@ -74,34 +74,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
             <tbody>
             
-            <c:forEach items="${list}" var="bean">
+            <c:forEach items="${picList}" var="pic">
               <tr>
                 
                 <td>
-                <img src="<%=basePath %>uploadfile/${bean.path }" width="300" height="50" />
+                <img src="<%=basePath %>uploadfile/${pic.path }" width="300" height="50" />
                 </td>
-                <td><a href="#" title="title">${bean.info }</a></td>
+                <td><a href="#" title="title">${pic.info }</a></td>
                 <td>
-                <a href="method!picupdate.action?id=${bean.id }">修改</a> &nbsp; &nbsp; &nbsp;
+                <a href="manageAction!picUpdatePage.action?id=${pic.id }">修改</a> &nbsp; &nbsp; &nbsp;
                 </td>
                
               </tr>
               </c:forEach>
-              
-              
-              
-              
-             
             </tbody>
-            
-            
-            
             
           </table>
         </div>
         
-        
-      
       </div>
  
     </div>

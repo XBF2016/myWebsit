@@ -61,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
             <p>
               <label>原图片</label>
-             <img src="<%=basePath %>uploadfile/${bean.path }" width="600" height="150" />
+             <img src="<%=basePath %>uploadfile/${pic.path }" width="600" height="120" />
               
             </p>
             
@@ -72,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               </p>
             <p>
               <label>图片说明</label>
-              <input class="text-input large-input" type="text" id="large-input" name="info" value="${bean.info }" />
+              <input class="text-input large-input" type="text" id="large-input" name="info" value="${pic.info }" />
             </p>
             
             
