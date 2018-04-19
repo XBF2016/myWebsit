@@ -55,23 +55,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
       
         <div class="tab-content default-tab" id="tab1">
-           <form action="${url }"   method="post"  >
+           <form action="${url }"   method="post"  enctype="multipart/form-data"  >
             <fieldset>
             
                <p>
-              <label>新闻标题</label>
-              <input class="large-input" type="text"  name="biaoti"  />
+              <label>产品名</label>
+              <input class="text-input small-input" type="text"  name="product_name"  />
             </p>
             
             
             <p>
-              <label>新闻内容</label>
-              <textarea id="content1" name="content1" style="display: none;"></textarea>
-				<iframe ID="eWebEditor" src="../editor/ewebeditor.htm?id=content1" frameborder="0" scrolling="no" width="900" height="400"></iframe>
+              <label>产品图片</label>
+              <input class="text-input small-input"  name="uploadfile"  type="file"  />
+              
+              </p>
+            
+   
+            
+             <p>
+              <label>产品介绍</label>
+              <textarea  name="info" width="500px" cols="79" rows="15"></textarea>
             </p>
-            
-            
-           
             
             
             

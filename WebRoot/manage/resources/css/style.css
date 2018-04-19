@@ -78,7 +78,18 @@ p {
                 font-size: 11px !important;
                 cursor: pointer;
                 }
-                
+.greenButton{
+	font-family: Verdana, Arial, sans-serif;
+                display: inline-block;
+                background: #459300 url('../images/bg-button-green.gif') top left repeat-x !important;
+                border: 1px solid #459300 !important;
+                padding: 4px 7px 4px 7px !important;
+                color: #fff !important;
+                font-size: 12px !important;
+                cursor: pointer;
+                border-radius: 4px;
+}
+
 .button:hover {
                 text-decoration: underline;
                 }
@@ -329,7 +340,7 @@ ul.content-box-tabs li a.current {
                 }
 
 .content-box-content {
-                padding: 20px;
+                padding: 30px;
                 font-size: 13px;
                 border-top: 1px solid #ccc;
                 }
@@ -481,13 +492,13 @@ form .medium-input {
                 }
                 
 form .large-input {
-                width: 97.5% !important;
+                width: 500px !important;
 				font-size: 16px !important;
 				padding: 8px !important;
                 }
                 
 form textarea {
-                width: 97.5% ;
+                width: 500px ;
                 font-family: Arial, Helvetica, sans-serif;
                 }
                 

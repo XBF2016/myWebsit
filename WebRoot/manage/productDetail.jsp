@@ -60,27 +60,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
                <p>
               <label>产品名</label>
-              <input class="text-input small-input" type="text"  name="pname"  value="${bean.pname }" />
+              <input class="text-input small-input" type="text"  name="product_name"  value="${product.product_name }" disabled="disabled" />
             </p>
             
             
             <p>
               <label>产品图片</label>
-             <img src="<%=basePath %>uploadfile/${bean.path }" width="150" height="150" />
+             <img src="<%=basePath %>uploadfile/${product.path }"  height="150" />
               
               </p>
             
-            <p>
-              <label>上传新图片</label>
-              <input class="text-input small-input"  name="uploadfile"  type="file"  />
-              
-              </p>
+            
             
    
             
              <p>
               <label>产品介绍</label>
-              <textarea  name="jieshao" cols="79" rows="15">${bean.jieshao }</textarea>
+              <textarea  name="info" cols="79" rows="15" disabled="disabled">${product.info }</textarea>
             </p>
             
             
@@ -93,9 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
             
             <p>
-              <input class="button" type="submit" value="提交" />
-              
-              &nbsp;&nbsp;&nbsp;
+
               
              <input class="button" type="button" value="返回"  onclick="javascript:history.go(-1);" />
             </p>

@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -25,6 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- jQuery WYSIWYG Plugin -->
 <script type="text/javascript" src="resources/scripts/jquery.wysiwyg.js"></script>
 
+
 </head>
 <body>
 
@@ -36,69 +38,98 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   
   <div id="main-content">
+    <!-- Main Content Section with everything -->
     
+    <!-- Page Head -->
+    
+    <!-- End .shortcut-buttons-set -->
     <div class="clear"></div>
     <!-- End .clear -->
     <div class="content-box">
       <!-- Start Content Box -->
       <div class="content-box-header">
         <h3>${title }</h3>
-        <ul class="content-box-tabs">
-          
-        </ul>
+        
         <div class="clear"></div>
       </div>
       <!-- End .content-box-header -->
       <div class="content-box-content">
-        
-        
-        
-      
         <div class="tab-content default-tab" id="tab1">
-           <form action="${url }"   method="post"  >
-            <fieldset>
-            
-               <p>
-              <label>新闻标题</label>
-              <input class="large-input" type="text"  name="biaoti" value="${bean.biaoti }" disabled="disabled" />
-            </p>
-            
-            
-            <p>
-              <label>新闻内容</label>
-              <textarea id="content1" name="content1" style="display: none;" disabled="disabled">${bean.neirong }</textarea>
-				<iframe ID="eWebEditor" src="<%=basePath %>editor/ewebeditor.htm?id=content1" frameborder="0" scrolling="no" width="900" height="400"></iframe>
-            </p>
+          <!-- This is the target div. id must match the href of this div's tab -->
+          
+         <a href="${url2 }AddPage.action"><button class="greenButton">添加新闻</button></a><br/><br/>
+            <div>
+           <form action="${url }" method="post">
+            标题：<input type="text" name="title"  "/>
+         
+            <input class="greenButton" type="submit" value="查询" />
+            </form>
             
             
+              </div>
+          
+          
+          <table>
+            <thead>
+              <tr>
+               
+                <th>标题</th>
            
+                <th>是否推荐</th>
+                <th>添加时间</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+            <c:forEach items="${newsList}" var="news">
+              <tr>
+                
+                <td>${news.title }</td>
+              
+                <td>${news.is_recommend }</td>
+                <td>${news.created_time }</td>
+                <td>
+                 <a href="${url2 }UpdatePage.action?id=${news.id }">修改</a> &nbsp; 
+                 <a href="${url2 }DetailPage.action?id=${news.id }">查看</a> &nbsp;
+                 <c:if test="${news.is_recommend=='不推荐'}">
+                  <a href="${url2 }RecommendChange.action?id=${news.id }&flag=0">推荐</a> &nbsp;
+                 </c:if>
+                  <c:if test="${news.is_recommend=='推荐'}">
+                 <a href="${url2 }RecommendChange.action?id=${news.id }&flag=1">取消推荐</a> &nbsp;
+                 </c:if>
+                 <a href="${url2 }Delete.action?id=${news.id }">删除</a> &nbsp;
+                 </td>
+              </tr>
+              </c:forEach>
+             
+            </tbody>
             
             
+            <tfoot>
+              <tr>
+                <td colspan="6">
+               ${pagerinfo }
+                </td>
+              </tr>
+            </tfoot>
             
-            
-            
-            
-            
-            
-            
-            
-            <p>
-      
-             <input class="button" type="button" value="返回"  onclick="javascript:history.go(-1);" />
-            </p>
-            </fieldset>
-            <div class="clear"></div>
-            <!-- End .clear -->
-          </form>
+          </table>
         </div>
-        <!-- End #tab2 -->
+        
+        
+      
       </div>
-      <!-- End .content-box-content -->
+ 
     </div>
     
+    
   
+    
+
+   
   </div>
-  <!-- End #main-content -->
+  
 </div>
 
 

@@ -60,12 +60,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
                <p>
               <label>产品名</label>
-              <input class="text-input small-input" type="text"  name="pname"  />
+              <input class="text-input small-input" type="text"  name="product_name"  value="${product.product_name }" />
             </p>
             
             
             <p>
               <label>产品图片</label>
+             <img src="<%=basePath %>uploadfile/${product.path }"  height="150" />
+              
+              </p>
+            
+            <p>
+              <label>上传新图片</label>
               <input class="text-input small-input"  name="uploadfile"  type="file"  />
               
               </p>
@@ -74,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
              <p>
               <label>产品介绍</label>
-              <textarea  name="jieshao" cols="79" rows="15"></textarea>
+              <textarea  name="info" cols="79" rows="15">${product.info }</textarea>
             </p>
             
             

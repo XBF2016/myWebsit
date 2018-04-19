@@ -59,11 +59,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           
          
             <div>
+            <a href="${url2 }AddPage.action"><button class="greenButton">添加新产品</button></a><br/><br/>
            <form action="${url}" method="post">
-<a href="${url2 }add.action"><span style="font-size: 20px;font-weight: bold;">添加新产品</span></a>
-            产品名：<input type="text" name="productName"  value="${productName }"/>
-         
-            <input type="submit" value="查询" />
+            产品名：<input type="text" name="product_name"  value="${product_name }"/>
+            <input class="greenButton" type="submit" value="查询" />
             </form>
             
             
@@ -98,15 +97,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </td>
                 <td>${product.created_time }</td>
                 <td>
-                 <a href="${url2 }update.action?id=${product.id }">修改</a> &nbsp; 
-                 <a href="${url2 }update3.action?id=${product.id }">查看</a> &nbsp;
+                 <a href="${url2 }UpdatePage.action?id=${product.id }">修改</a> &nbsp; 
+                 <a href="${url2 }DetailPage.action?id=${product.id }">查看</a> &nbsp;
                  <c:if test="${product.is_recommend=='不推荐'}">
                  <a href="${url2 }RecommendChange.action?id=${product.id }&flag=0">推荐</a> &nbsp;
                  </c:if>
                   <c:if test="${product.is_recommend=='推荐'}">
                  <a href="${url2 }RecommendChange.action?id=${product.id }&flag=1">取消推荐</a> &nbsp;
                  </c:if>
-                 <a href="${url2 }delete.action?id=${product.id }">删除</a> &nbsp;
+                 <a href="${url2 }Delete.action?id=${product.id }">删除</a> &nbsp;
                  </td>
               </tr>
               </c:forEach>

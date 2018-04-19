@@ -58,16 +58,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <form action="${url }"   method="post"  >
             <fieldset>
             
-               <p>
+             <p>
               <label>新闻标题</label>
-              <input class="large-input" type="text"  name="biaoti" value="${bean.biaoti }" />
+              <textarea id="title" name="title" style="display: none;" disabled="disabled">${news.title }</textarea>
+				<iframe ID="eWebEditor" src="<%=basePath %>editor/ewebeditor.htm?id=title" frameborder="0" scrolling="no" width="900" height="400"></iframe>
             </p>
-            
+
+          <p>
+              <label>产品图片</label>
+             <img src="<%=basePath %>uploadfile/${news.picPath }"  height="150" />
+              
+              </p>
             
             <p>
               <label>新闻内容</label>
-              <textarea id="content1" name="content1" style="display: none;">${bean.neirong }</textarea>
-				<iframe ID="eWebEditor" src="<%=basePath %>editor/ewebeditor.htm?id=content1" frameborder="0" scrolling="no" width="900" height="400"></iframe>
+              <textarea id="content" name="content" style="display: none;" disabled="disabled">${news.content }</textarea>
+				<iframe ID="eWebEditor" src="<%=basePath %>editor/ewebeditor.htm?id=content" frameborder="0" scrolling="no" width="900" height="400"></iframe>
             </p>
             
             
@@ -83,10 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
             
             <p>
-              <input class="button" type="submit" value="提交" />
-              
-              &nbsp;&nbsp;&nbsp;
-              
+      
              <input class="button" type="button" value="返回"  onclick="javascript:history.go(-1);" />
             </p>
             </fieldset>
