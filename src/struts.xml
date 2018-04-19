@@ -3,10 +3,30 @@
 <struts>
 	<constant name="struts.objectFactory" value="spring" />
 	<constant name="struts.i18n.encoding" value="UTF-8" />
+	  <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<!-- 配置全局拦截器 -->
+    <package name="new-struts-default" abstract="true" namespace="/" extends="struts-default">
+              <!-- 准默认拦截器栈 -->
+              <interceptors>
+                       <interceptor name="authInterceptor" class="com.myWebsit.interceptor.AuthInterceptor"></interceptor>
+                       <interceptor-stack name="newDefaultStack">
+                              <interceptor-ref name="authInterceptor"></interceptor-ref>
+                              <interceptor-ref name="defaultStack"></interceptor-ref>
+                       </interceptor-stack>
+              </interceptors>
+              
+              <!-- 指定默认拦截器栈 -->
+              <default-interceptor-ref name="newDefaultStack" ></default-interceptor-ref>
+              
+              <!-- 配置全局result -->
+              <global-results>
+                  <result name="authError">/manage/login.jsp</result>
+              </global-results>
+    </package>
 
 	
 
-	 <package name="index" namespace="/" extends="struts-default">
+	 <package name="index" namespace="/" extends="new-struts-default">
 	 
 
 	 	 <action name="index" method="index" class="indexAction" >
@@ -14,15 +34,17 @@
         </action>
 	 
         <action name="indexAction"  class="indexAction" >
+        <result name="loginPage">manage/login.jsp</result> 
            <result type="dispatcher">${url}</result>
 		   <result name="redirect" type="redirect">${url}</result>
+		   
         </action>
 	 
-	 
-		<action name="manageAction" class="manageAction">
-		   <result name="loginPage">manage/login.jsp</result> 
+		<action name="manageAction_*" class="manageAction" method="{1}">
+		   		   <result name="passwordChange">passwordChange.jsp</result> 
 			<result type="dispatcher">${url}</result>
 			<result name="redirect" type="redirect">${url}</result>
+			<interceptor-ref name="newDefaultStack"></interceptor-ref>
 		</action>
     </package>
     

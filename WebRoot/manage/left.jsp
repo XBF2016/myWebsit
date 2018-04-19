@@ -18,7 +18,7 @@
         
         <li> <a href="#" class="nav-top-item">系统管理 </a>
           <ul>
-            <li><a href="password.jsp">修改密码</a></li>
+            <li><a href="manageAction!passwordChangePage.action">修改密码</a></li>
              <li><a href="manageAction!loginout.action">安全退出</a></li>
           </ul>
         </li>

@@ -44,6 +44,11 @@ public class IndexAction extends ActionSupport {
 
 	private ServiceDao serviceDao;
 
+	// 后台登录页面
+	public String loginPage() throws IOException {
+		return "loginPage";
+	}
+
 	// 网站首页
 	public String index() {
 		HttpServletRequest request = ServletActionContext.getRequest();

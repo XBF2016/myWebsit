@@ -53,9 +53,9 @@ public class ManageAction extends ActionSupport {
 		this.url = url;
 	}
 
-	// 登录页面
-	public String loginPage() throws IOException {
-		return "loginPage";
+	// 修改密码页面
+	public String passwordChangePage() throws IOException {
+		return "passwordChange";
 	}
 
 	// 登入请求
@@ -90,7 +90,7 @@ public class ManageAction extends ActionSupport {
 	}
 
 	// 修改密码操作
-	public void changepwd2() throws IOException {
+	public void passwordChange() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
 
 		HttpSession session = request.getSession();
@@ -106,13 +106,13 @@ public class ManageAction extends ActionSupport {
 			response.setCharacterEncoding("gbk");
 			response.setContentType("text/html; charset=gbk");
 			response.getWriter()
-					.print("<script language=javascript>alert('修改成功');window.location.href='password.jsp';</script>");
+					.print("<script language=javascript>alert('修改成功');window.location.href='manageAction!passwordChangePage.action';</script>");
 		} else {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("gbk");
 			response.setContentType("text/html; charset=gbk");
 			response.getWriter()
-					.print("<script language=javascript>alert('原密码错误');window.location.href='password.jsp';</script>");
+					.print("<script language=javascript>alert('原密码错误');window.location.href='manageAction!passwordChangePage.action';</script>");
 		}
 	}
 

@@ -27,29 +27,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <script type="text/javascript" language="javascript">
 function checkform(){
-	if(document.getElementById("password1id").value==""){
+	if(document.getElementById("password1Id").value==""){
 		
 		alert('原密码不能为空');
 		return false;
 	}
-	if(document.getElementById("password2id").value==""){
+	if(document.getElementById("password2Id").value==""){
 		
 		alert('新密码不能为空');
 		return false;
 	}
-	if(document.getElementById("password3id").value==""){
+	if(document.getElementById("password3Id").value==""){
 		
 		alert('确认密码不能为空');
 		return false;
 	}
 	
-	if(document.getElementById("password2id").value.length<6){
+	if(document.getElementById("password2Id").value.length<6){
 		
 		alert('新密码长度必须大于6位');
 		return false;
 	}
 	
-	if(document.getElementById("password2id").value != document.getElementById("password3id").value){
+	if(document.getElementById("password2Id").value != document.getElementById("password3Id").value){
 		
 		alert('新密码和新密码确认不一致');
 		return false;
@@ -94,22 +94,22 @@ function checkform(){
         
       
         <div class="tab-content default-tab" id="tab1">
-          <form action="method!changepwd2.action" method="post"  onsubmit="return checkform()">
+          <form action="manageAction!passwordChange.action" method="post"  onsubmit="return checkform()">
             <fieldset>
             <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
             <p>
               <label>原密码</label>
-              <input class="text-input small-input" type="text" name="password1"  id="password1id" />
+              <input class="text-input small-input" type="text" name="password1"  id="password1Id" />
    
             </p>
             
             <p>
               <label>新密码</label>
-              <input class="text-input small-input datepicker" type="text"  name="password2" id="password2id" />
+              <input class="text-input small-input datepicker" type="text"  name="password2" id="password2Id" />
             
             <p>
               <label>确认新密码</label>
-              <input class="text-input small-input" type="text" name="password3" id="password3id" />
+              <input class="text-input small-input" type="text" name="password3" id="password3Id" />
             </p>
             
             <p>
