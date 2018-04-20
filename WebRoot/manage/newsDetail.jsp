@@ -60,8 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
              <p>
               <label>新闻标题</label>
-              <textarea id="title" name="title" style="display: none;" disabled="disabled">${news.title }</textarea>
-				<iframe ID="eWebEditor" src="<%=basePath %>editor/ewebeditor.htm?id=title" frameborder="0" scrolling="no" width="900" height="400"></iframe>
+             <input class="text-input small-input" type="text"  name="title" value="${news.title }" />
             </p>
 
           <p>
@@ -72,8 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
             <p>
               <label>新闻内容</label>
-              <textarea id="content" name="content" style="display: none;" disabled="disabled">${news.content }</textarea>
-				<iframe ID="eWebEditor" src="<%=basePath %>editor/ewebeditor.htm?id=content" frameborder="0" scrolling="no" width="900" height="400"></iframe>
+              <textarea id="content" name="content" width="500px" cols="79" rows="15">${news.content }</textarea>
             </p>
             
             

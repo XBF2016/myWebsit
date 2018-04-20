@@ -16,13 +16,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
 <!--                       Javascripts                       -->
 <!-- jQuery -->
-<script type="text/javascript" src="resources/scripts/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="manage/resources/scripts/jquery-1.3.2.min.js"></script>
 <!-- jQuery Configuration -->
-<script type="text/javascript" src="resources/scripts/simpla.jquery.configuration.js"></script>
+<script type="text/javascript" src="manage/resources/scripts/simpla.jquery.configuration.js"></script>
 <!-- Facebox jQuery Plugin -->
-<script type="text/javascript" src="resources/scripts/facebox.js"></script>
+<script type="text/javascript" src="manage/resources/scripts/facebox.js"></script>
 <!-- jQuery WYSIWYG Plugin -->
-<script type="text/javascript" src="resources/scripts/jquery.wysiwyg.js"></script>
+<script type="text/javascript" src="manage/resources/scripts/jquery.wysiwyg.js"></script>
 
 <script type="text/javascript" language="javascript">
 function checkform(){
@@ -59,7 +59,7 @@ function register(){
     <tr>
       <td align="center" height="400" valign="middle">
       <form method="post"   action="manageAction_login.action" onsubmit="return checkform()">
-      <table  background="../images/login.jpg" width="500" height="300" border="0" cellspacing="0" cellpadding="0" style="margin-top:90" align="center">
+      <table  background="images/login.jpg" width="500" height="300" border="0" cellspacing="0" cellpadding="0" style="margin-top:90" align="center">
           <tr>
             <th height="130" colspan="2" class="" scope="col"></th>
 		  </tr>

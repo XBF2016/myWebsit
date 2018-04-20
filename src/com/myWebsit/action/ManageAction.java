@@ -106,7 +106,7 @@ public class ManageAction extends ActionSupport {
 			response.setCharacterEncoding("gbk");
 			response.setContentType("text/html; charset=gbk");
 			response.getWriter()
-					.print("<script language=javascript>alert('修改成功');window.location.href='manageAction!passwordChangePage.action';</script>");
+					.print("<script language=javascript>alert('修改成功');window.location.href='indexAction!loginPage.action';</script>");
 		} else {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("gbk");

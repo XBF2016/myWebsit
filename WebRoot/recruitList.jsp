@@ -42,7 +42,7 @@ ddsmoothmenu.init({
       <li><a href="indexAction!recruitListPage.action" title="招聘信息" id="menu_selected"><span>招聘信息</span></a></li>
       <li><a href="indexAction!serviceSupportPage.action" title="服务支持"><span>服务支持</span></a></li>
       <li><a href="indexAction!feedbackPage.action" title="留言反馈"><span>留言反馈</span></a></li>
-      <li><a href="manageAction!loginPage.action"  ><span>管理员登录</span></a></li>
+      <li><a href="indexAction!loginPage.action"  ><span>管理员登录</span></a></li>
     </ul>
   </div>
   

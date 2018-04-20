@@ -16,26 +16,22 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import com.myWebsit.bean.Pic;
 import com.myWebsit.bean.Company;
+import com.myWebsit.bean.Pic;
 import com.myWebsit.bean.User;
-import com.myWebsit.dao.PicDao;
 import com.myWebsit.dao.CompanyDao;
+import com.myWebsit.dao.PicDao;
 import com.myWebsit.dao.UserDao;
-
-
-
 
 public class Util {
 
-	
 	// 获取当前月份
 	public static String getYuefen() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
 		Date date = new Date();
 		return sdf.format(date.getTime());
 	}
-	
+
 	// 获取当前系统时间
 	public static String getTime() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -104,31 +100,30 @@ public class Util {
 		UserDao userDao = (UserDao) app.getBean("userDao");
 		PicDao picDao = (PicDao) app.getBean("picDao");
 		CompanyDao companyDao = (CompanyDao) app.getBean("companyDao");
-		
-		User user = userDao
-				.selectBean(" where username='admin'  ");
+
+		User user = userDao.selectBean(" where username='admin'  ");
 		if (user == null) {
 			user = new User();
-			user.setPassword("111111");
+			user.setPassword("admin");
 			user.setRole(1);
 			user.setUsername("admin");
 			userDao.insertBean(user);
-			
+
 			Pic p1 = new Pic();
 			p1.setPath("banner01.jpg");
 			p1.setInfo("展示图片一");
 			picDao.insertBean(p1);
-			
+
 			Pic p2 = new Pic();
 			p2.setPath("banner02.jpg");
 			p2.setInfo("展示图片二");
 			picDao.insertBean(p2);
-			
+
 			Pic p3 = new Pic();
 			p3.setPath("banner03.jpg");
 			p3.setInfo("展示图片三");
 			picDao.insertBean(p3);
-			
+
 			Company q = new Company();
 			q.setFax("未初始化");
 			q.setTel("未初始化");
@@ -141,7 +136,7 @@ public class Util {
 			q.setMailbox("未初始化");
 			q.setName("企业门户网站");
 			companyDao.insertBean(q);
-			
+
 		}
 	}
 
