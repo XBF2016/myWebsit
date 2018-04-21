@@ -59,7 +59,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           
          
             <div>
-          
+            <a href="${url2 }AddPage.action"><button class="greenButton">添加新招聘信息</button></a><br /><br />
+           <form action="${url }" method="post">
+
+            职位名：<input type="text" name="recruit"  "/>
+         
+            <input type="submit" value="查询" class="greenButton"/>
+            </form>
             
             
               </div>
@@ -69,27 +75,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <thead>
               <tr>
                
-                <th>姓名</th>
+                <th>职位名</th>
            
-            
-                <th>留言时间</th>
+                <th>是否推荐</th>
+                <th>添加时间</th>
                 <th>操作</th>
               </tr>
             </thead>
             
             <tbody>
-            <c:forEach items="${messageList}" var="message">
+            <c:forEach items="${recruitList}" var="recruit">
               <tr>
                 
-                <td>${message.name }</td>
+                <td>${recruit.position }</td>
               
-                <td>${message.time }</td>
-              
+                <td>${recruit.is_recommend }</td>
+                <td>${recruit.created_time }</td>
                 <td>
-           
-                 <a href="${url2 }DetailPage.action?id=${message.id }">查看</a> &nbsp;
-                
-                 <a href="${url2 }Delete.action?id=${message.id }">删除</a> &nbsp;
+                 <a href="${url2 }UpdatePage.action?id=${recruit.id }">修改</a> &nbsp; 
+                 <a href="${url2 }DetailPage.action?id=${recruit.id }">查看</a> &nbsp;
+                 <c:if test="${recruit.is_recommend=='不推荐'}">
+                 <a href="${url2 }RecommendChange.action?id=${recruit.id }&flag=0">推荐</a> &nbsp;
+                 </c:if>
+                  <c:if test="${recruit.is_recommend=='推荐'}">
+                 <a href="${url2 }RecommendChange.action?id=${recruit.id }&flag=1">取消推荐</a> &nbsp;
+                 </c:if>
+                 <a href="${url2 }Delete.action?id=${recruit.id }">删除</a> &nbsp;
                  </td>
               </tr>
               </c:forEach>

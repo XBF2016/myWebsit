@@ -52,9 +52,16 @@
           </ul>
         </li>
         
+         <li> <a href="#" class="nav-top-item">网点管理</a>
+          <ul>
+            <li><a href="manageAction!serviceListPage.action">网点信息管理</a></li>
+        
+          </ul>
+        </li>
+        
          <li> <a href="#" class="nav-top-item">留言反馈查看</a>
           <ul>
-            <li><a href="manageAction!messagelist.action">留言反馈查看</a></li>
+            <li><a href="manageAction!messageListPage.action">留言反馈查看</a></li>
         
           </ul>
         </li>

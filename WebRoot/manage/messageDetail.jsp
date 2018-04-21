@@ -59,17 +59,55 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <fieldset>
             
                <p>
-              <label>职位名</label>
-              <input class="text-input small-input" type="text"  name="zhiwei"  />
+              <label>姓名</label>
+              <input class="text-input small-input" type="text"  name="name" value="${message.name }" disabled="disabled" />
             </p>
+            
+             <p>
+              <label>邮件地址</label>
+              <input class="text-input small-input" type="text"  name="mailbox" value="${message.mailbox }" disabled="disabled" />
+            </p>
+            
+            
+             <p>
+              <label>电话</label>
+              <input class="text-input small-input" type="text"  name="tel" value="${message.tel }" disabled="disabled" />
+            </p>
+            
+            <p>
+              <label>手机</label>
+              <input class="text-input small-input" type="text"  name="phone" value="${message.phone }" disabled="disabled" />
+            </p>
+            
+            
+            
+             <p>
+              <label>传真</label>
+              <input class="text-input small-input" type="text"  name="fax" value="${message.fax }" disabled="disabled" />
+            </p>
+            
+            
+             <p>
+              <label>地址</label>
+              <input class="text-input small-input" type="text"  name="address" value="${message.address }" disabled="disabled" />
+            </p>
+            
+            
+             <p>
+              <label>邮编</label>
+              <input class="text-input small-input" type="text"  name="postcode" value="${message.postcode }" disabled="disabled" />
+            </p>
+            
+            
+            
             
             
            
    
             
              <p>
-              <label>职位介绍</label>
-              <textarea  name="jieshao" cols="79" rows="15"></textarea>
+              <label>留言内容</label>
+              <textarea  name="content" cols="79" rows="15" disabled="disabled">${message.content }</textarea>
             </p>
             
             
@@ -82,9 +120,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
             
             <p>
-              <input class="button" type="submit" value="提交" />
-              
-              &nbsp;&nbsp;&nbsp;
+            
               
              <input class="button" type="button" value="返回"  onclick="javascript:history.go(-1);" />
             </p>

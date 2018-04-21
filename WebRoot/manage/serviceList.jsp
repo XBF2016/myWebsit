@@ -57,13 +57,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="tab-content default-tab" id="tab1">
           <!-- This is the target div. id must match the href of this div's tab -->
           
-         
+         <a href="${url2 }AddPage.action"><button class="greenButton">添加网点</button></a><br/><br/>
             <div>
            <form action="${url }" method="post">
-<a href="${url2 }add.action"><span style="font-size: 20px;font-weight: bold;">添加新招聘信息</span></a>
-            职位名：<input type="text" name="zhiwei"  value="${zhiwei }"/>
+            标题：<input type="text" name="name"  "/>
          
-            <input type="submit" value="查询" />
+            <input class="greenButton" type="submit" value="查询" />
             </form>
             
             
@@ -74,32 +73,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <thead>
               <tr>
                
-                <th>职位名</th>
+                <th>网点名称</th>
            
-                <th>是否推荐</th>
-                <th>添加时间</th>
+                <th>网点地址</th>
                 <th>操作</th>
               </tr>
             </thead>
             
             <tbody>
-            <c:forEach items="${list}" var="bean">
+            <c:forEach items="${serviceList}" var="service">
               <tr>
                 
-                <td>${bean.zhiwei }</td>
+                <td>${service.name }</td>
               
-                <td>${bean.tuijian }</td>
-                <td>${bean.createtime }</td>
+                <td>${service.address }</td>
                 <td>
-                 <a href="${url2 }update.action?id=${bean.id }">修改</a> &nbsp; 
-                 <a href="${url2 }update3.action?id=${bean.id }">查看</a> &nbsp;
-                 <c:if test="${bean.tuijian=='未推荐'}">
-                 <a href="${url2 }delete2.action?id=${bean.id }">推荐</a> &nbsp;
-                 </c:if>
-                  <c:if test="${bean.tuijian=='推荐'}">
-                 <a href="${url2 }delete3.action?id=${bean.id }">取消推荐</a> &nbsp;
-                 </c:if>
-                 <a href="${url2 }delete.action?id=${bean.id }">删除</a> &nbsp;
+                 <a href="${url2 }UpdatePage.action?id=${service.id }">修改</a> &nbsp; 
+                 <a href="${url2 }DetailPage.action?id=${service.id }">查看</a> &nbsp;
+                 <a href="${url2 }Delete.action?id=${service.id }">删除</a> &nbsp;
                  </td>
               </tr>
               </c:forEach>

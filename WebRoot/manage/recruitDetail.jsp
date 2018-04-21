@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
                <p>
               <label>职位名</label>
-              <input class="text-input small-input" type="text"  name="zhiwei" value="${bean.zhiwei }" />
+              <input class="text-input small-input" type="text"  name="position" value="${recruit.position }" disabled="disabled" />
             </p>
             
             
@@ -69,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
              <p>
               <label>职位介绍</label>
-              <textarea  name="jieshao" cols="79" rows="15">${bean.jieshao }</textarea>
+              <textarea  name="info" cols="79" rows="15" disabled="disabled">${recruit.info }</textarea>
             </p>
             
             
@@ -82,9 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
             
             <p>
-              <input class="button" type="submit" value="提交" />
-              
-              &nbsp;&nbsp;&nbsp;
+            
               
              <input class="button" type="button" value="返回"  onclick="javascript:history.go(-1);" />
             </p>

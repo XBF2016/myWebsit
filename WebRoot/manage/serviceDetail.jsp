@@ -1,5 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -26,7 +25,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- jQuery WYSIWYG Plugin -->
 <script type="text/javascript" src="resources/scripts/jquery.wysiwyg.js"></script>
 
-
 </head>
 <body>
 
@@ -38,89 +36,91 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   
   <div id="main-content">
-    <!-- Main Content Section with everything -->
     
-    <!-- Page Head -->
-    
-    <!-- End .shortcut-buttons-set -->
     <div class="clear"></div>
     <!-- End .clear -->
     <div class="content-box">
       <!-- Start Content Box -->
       <div class="content-box-header">
         <h3>${title }</h3>
-        
+        <ul class="content-box-tabs">
+          
+        </ul>
         <div class="clear"></div>
       </div>
       <!-- End .content-box-header -->
       <div class="content-box-content">
-        <div class="tab-content default-tab" id="tab1">
-          <!-- This is the target div. id must match the href of this div's tab -->
-          
-         
-            <div>
-          
-            
-            
-              </div>
-          
-          
-          <table>
-            <thead>
-              <tr>
-               
-                <th>姓名</th>
-           
-            
-                <th>留言时间</th>
-                <th>操作</th>
-              </tr>
-            </thead>
-            
-            <tbody>
-            <c:forEach items="${messageList}" var="message">
-              <tr>
-                
-                <td>${message.name }</td>
-              
-                <td>${message.time }</td>
-              
-                <td>
-           
-                 <a href="${url2 }DetailPage.action?id=${message.id }">查看</a> &nbsp;
-                
-                 <a href="${url2 }Delete.action?id=${message.id }">删除</a> &nbsp;
-                 </td>
-              </tr>
-              </c:forEach>
-             
-            </tbody>
-            
-            
-            <tfoot>
-              <tr>
-                <td colspan="6">
-               ${pagerinfo }
-                </td>
-              </tr>
-            </tfoot>
-            
-          </table>
-        </div>
+        
         
         
       
+        <div class="tab-content default-tab" id="tab1">
+           <form action="${url }"   method="post"   >
+            <fieldset>
+            
+            
+            <p>
+              <label>网点名称</label>
+              <input class="text-input small-input" type="text"  name="name" value="${service.name }" />
+            </p>
+            
+            
+            <p>
+              <label>地址</label>
+              <input class="text-input small-input" type="text"  name="address" value="${service.address }" />
+            </p>
+            
+             <p>
+              <label>邮编</label>
+              <input class="text-input small-input" type="text"  name="postcode" value="${service.postcode }" />
+            </p>
+            
+             <p>
+              <label>联系人</label>
+              <input class="text-input small-input" type="text"  name="contact" value="${service.contact }" />
+            </p>
+            
+             <p>
+              <label>电话</label>
+              <input class="text-input small-input" type="text"  name="tel"  value="${service.tel }"/>
+            </p>
+            
+            <p>
+              <label>传真</label>
+              <input class="text-input small-input" type="text"  name="fax"  value="${service.fax }"/>
+            </p>
+            
+             <p>
+              <label>手机</label>
+              <input class="text-input small-input" type="text"  name="phone" value="${service.phone }" />
+            </p>
+            
+             <p>
+              <label>邮箱</label>
+              <input class="text-input small-input" type="text"  name="mailbox"  value="${service.mailbox }"/>
+            </p>
+            
+            
+            
+            <p>
+              
+              &nbsp;&nbsp;&nbsp;
+              
+             <input class="button" type="button" value="返回"  onclick="javascript:history.go(-1);" />
+            </p>
+            </fieldset>
+            <div class="clear"></div>
+            <!-- End .clear -->
+          </form>
+        </div>
+        <!-- End #tab2 -->
       </div>
- 
+      <!-- End .content-box-content -->
     </div>
     
-    
   
-    
-
-   
   </div>
-  
+  <!-- End #main-content -->
 </div>
 
 

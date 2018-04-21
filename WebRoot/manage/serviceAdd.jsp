@@ -55,34 +55,57 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
       
         <div class="tab-content default-tab" id="tab1">
-           <form action="${url }"   method="post"  enctype="multipart/form-data"  >
+           <form action="${url }"   method="post"   >
             <fieldset>
             
-               <p>
-              <label>职位名</label>
-              <input class="text-input small-input" type="text"  name="zhiwei" value="${bean.zhiwei }" disabled="disabled" />
+            
+              <p>
+              <label>网点名称</label>
+              <input class="text-input small-input" type="text"  name="name" " />
             </p>
             
             
-           
-   
+            <p>
+              <label>地址</label>
+              <input class="text-input small-input" type="text"  name="address" " />
+            </p>
             
              <p>
-              <label>职位介绍</label>
-              <textarea  name="jieshao" cols="79" rows="15" disabled="disabled">${bean.jieshao }</textarea>
+              <label>邮编</label>
+              <input class="text-input small-input" type="text"  name="postcode" />
             </p>
             
+             <p>
+              <label>联系人</label>
+              <input class="text-input small-input" type="text"  name="contact"  />
+            </p>
             
+             <p>
+              <label>电话</label>
+              <input class="text-input small-input" type="text"  name="tel" />
+            </p>
             
+            <p>
+              <label>传真</label>
+              <input class="text-input small-input" type="text"  name="fax" />
+            </p>
             
+             <p>
+              <label>手机</label>
+              <input class="text-input small-input" type="text"  name="phone"/>
+            </p>
             
-            
-            
+             <p>
+              <label>邮箱</label>
+              <input class="text-input small-input" type="text"  name="mailbox"  />
+            </p>
             
             
             
             <p>
-            
+              <input class="button" type="submit" value="提交" />
+              
+              &nbsp;&nbsp;&nbsp;
               
              <input class="button" type="button" value="返回"  onclick="javascript:history.go(-1);" />
             </p>

@@ -17,6 +17,7 @@ import com.myWebsit.bean.News;
 import com.myWebsit.bean.Pic;
 import com.myWebsit.bean.Product;
 import com.myWebsit.bean.Recruit;
+import com.myWebsit.bean.Service;
 import com.myWebsit.bean.User;
 import com.myWebsit.dao.CompanyDao;
 import com.myWebsit.dao.MessageDao;
@@ -24,6 +25,7 @@ import com.myWebsit.dao.NewsDao;
 import com.myWebsit.dao.PicDao;
 import com.myWebsit.dao.ProductDao;
 import com.myWebsit.dao.RecruitDao;
+import com.myWebsit.dao.ServiceDao;
 import com.myWebsit.dao.UserDao;
 import com.myWebsit.util.Pager;
 import com.myWebsit.util.Util;
@@ -155,7 +157,8 @@ public class ManageAction extends ActionSupport {
 	public void picUpdate() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String info = request.getParameter("info");
-		Pic pic = picDao.selectBean(" where id= " + request.getParameter("id"));
+		String id = request.getParameter("id");
+		Pic pic = picDao.selectBean(" where id= " + id);
 		pic.setInfo(info);
 		if (uploadfile != null) {
 			String savaPath = ServletActionContext.getServletContext()
@@ -174,43 +177,14 @@ public class ManageAction extends ActionSupport {
 		response.setCharacterEncoding("gbk");
 		response.setContentType("text/html; charset=gbk");
 		response.getWriter()
-				.print("<script language=javascript>alert('success!');window.location.href='manageAction!picListPage.action';</script>");
+				.print("<script language=javascript>alert('success!');window.location.href='manageAction!picUpdatePage.action?id="
+						+ id + "';</script>");
 	}
 
 	private File uploadfile;
 
 	public File getUploadfile() {
 		return uploadfile;
-	}
-
-	public void setUploadfile(File uploadfile) {
-		this.uploadfile = uploadfile;
-	}
-
-	private CompanyDao companyDao;
-
-	public CompanyDao getCompanyDao() {
-		return companyDao;
-	}
-
-	public void setCompanyDao(CompanyDao companyDao) {
-		this.companyDao = companyDao;
-	}
-
-	public NewsDao getNewsDao() {
-		return newsDao;
-	}
-
-	public void setNewsDao(NewsDao newsDao) {
-		this.newsDao = newsDao;
-	}
-
-	public RecruitDao getRecruitDao() {
-		return recruitDao;
-	}
-
-	public void setRecruitDao(RecruitDao recruitDao) {
-		this.recruitDao = recruitDao;
 	}
 
 	// 跳转到更新企业信息页面
@@ -233,6 +207,7 @@ public class ManageAction extends ActionSupport {
 	// 更新公司信息
 	public void companyUpdate() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
+		String id = request.getParameter("id");
 		String fax = request.getParameter("fax");
 		String tel = request.getParameter("tel");
 		String address = request.getParameter("address");
@@ -243,8 +218,7 @@ public class ManageAction extends ActionSupport {
 		String mailbox = request.getParameter("mailbox");
 		String name = request.getParameter("name");
 
-		Company bean = companyDao.selectBean(" where id= "
-				+ request.getParameter("id"));
+		Company bean = companyDao.selectBean(" where id= " + id);
 		bean.setFax(fax);
 		bean.setTel(tel);
 		bean.setAddress(address);
@@ -271,7 +245,8 @@ public class ManageAction extends ActionSupport {
 		response.setCharacterEncoding("gbk");
 		response.setContentType("text/html; charset=gbk");
 		response.getWriter()
-				.print("<script language=javascript>alert('success!');window.location.href='manageAction!companyUpdatePage.action';</script>");
+				.print("<script language=javascript>alert('success!');window.location.href='manageAction!companyUpdatePage.action?id="
+						+ id + "';</script>");
 	}
 
 	private ProductDao productDao;
@@ -378,10 +353,10 @@ public class ManageAction extends ActionSupport {
 	// 更新产品操作
 	public void productUpdate() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
+		String id = request.getParameter("id");
 		String info = request.getParameter("info");
 		String product_name = request.getParameter("product_name");
-		Product product = productDao.selectBean(" where id= "
-				+ request.getParameter("id"));
+		Product product = productDao.selectBean(" where id= " + id);
 		product.setInfo(info);
 		if (uploadfile != null) {
 			String savaPath = ServletActionContext.getServletContext()
@@ -400,7 +375,8 @@ public class ManageAction extends ActionSupport {
 		response.setCharacterEncoding("gbk");
 		response.setContentType("text/html; charset=gbk");
 		response.getWriter()
-				.print("<script language=javascript>alert('success!');window.location.href='manageAction!productListPage.action';</script>");
+				.print("<script language=javascript>alert('success!');window.location.href='manageAction!productUpdatePage.action?id="
+						+ id + "';</script>");
 	}
 
 	// 删除产品操作
@@ -546,10 +522,10 @@ public class ManageAction extends ActionSupport {
 	// 更新新闻操作
 	public void newsUpdate() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
+		String id = request.getParameter("id");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		News news = newsDao.selectBean(" where id= "
-				+ request.getParameter("id"));
+		News news = newsDao.selectBean(" where id= " + id);
 		news.setTitle(title);
 		news.setContent(content);
 		if (uploadfile != null) {
@@ -568,7 +544,8 @@ public class ManageAction extends ActionSupport {
 		response.setCharacterEncoding("gbk");
 		response.setContentType("text/html; charset=gbk");
 		response.getWriter()
-				.print("<script language=javascript>alert('success!');window.location.href='manageAction!newsListPage.action';</script>");
+				.print("<script language=javascript>alert('success!');window.location.href='manageAction!newsUpdatePage.action?id="
+						+ id + "';</script>");
 	}
 
 	// 删除新闻操作
@@ -620,21 +597,21 @@ public class ManageAction extends ActionSupport {
 	private RecruitDao recruitDao;
 
 	// 招聘列表
-	public String zhaopinlist() {
+	public String recruitListPage() {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		String zhiwei = request.getParameter("zhiwei");
+		String recruit = request.getParameter("recruit");
 
 		StringBuffer sb = new StringBuffer();
 		sb.append(" where ");
 
-		if (zhiwei != null && !"".equals(zhiwei)) {
+		if (recruit != null && !"".equals(recruit)) {
 
-			sb.append("zhiwei like '%" + zhiwei + "%'");
+			sb.append("position like '%" + recruit + "%'");
 			sb.append(" and ");
-			request.setAttribute("zhiwei", zhiwei);
+			request.setAttribute("recruit", recruit);
 		}
 
-		sb.append("   1=1 order by tuijian ,id desc ");
+		sb.append("   1=1 order by is_recommend ,id desc ");
 		String where = sb.toString();
 
 		int currentpage = 1;
@@ -644,30 +621,30 @@ public class ManageAction extends ActionSupport {
 		}
 		int total = recruitDao.selectBeanCount(where.replaceAll(
 				" order by id desc ", ""));
-		request.setAttribute("list", recruitDao.selectBeanList(
+		request.setAttribute("recruitList", recruitDao.selectBeanList(
 				(currentpage - 1) * pagesize, pagesize, where));
 		request.setAttribute("pagerinfo", Pager.getPagerNormal(total, pagesize,
-				currentpage, "manageAction!zhaopinlist.action", "共有" + total
-						+ "条记录"));
-		request.setAttribute("url", "manageAction!zhaopinlist.action");
-		request.setAttribute("url2", "manageAction!zhaopin");
+				currentpage, "manageAction!recruitListPage.action", "共有"
+						+ total + "条记录"));
+		request.setAttribute("url", "manageAction!recruitListPage.action");
+		request.setAttribute("url2", "manageAction!recruit");
 		request.setAttribute("title", "招聘管理");
-		this.setUrl("zhaopinlist.jsp");
+		this.setUrl("recruitList.jsp");
 		return SUCCESS;
 
 	}
 
 	// 跳转到添加招聘页面
-	public String zhaopinadd() {
+	public String recruitAddPage() {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		request.setAttribute("url", "manageAction!zhaopinadd2.action");
+		request.setAttribute("url", "manageAction!recruitAdd.action");
 		request.setAttribute("title", "招聘添加");
-		this.setUrl("zhaopinadd.jsp");
+		this.setUrl("recruitAdd.jsp");
 		return SUCCESS;
 	}
 
 	// 添加招聘操作
-	public void zhaopinadd2() throws IOException {
+	public void recruitAdd() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String info = request.getParameter("info");
 		String position = request.getParameter("position");
@@ -676,7 +653,7 @@ public class ManageAction extends ActionSupport {
 		bean.setInfo(info);
 		bean.setPosition(position);
 
-		bean.setIs_recommend("未推荐");
+		bean.setIs_recommend("不推荐");
 		bean.setCreated_time(Util.getTime());
 
 		recruitDao.insertBean(bean);
@@ -684,29 +661,29 @@ public class ManageAction extends ActionSupport {
 		response.setCharacterEncoding("gbk");
 		response.setContentType("text/html; charset=gbk");
 		response.getWriter()
-				.print("<script language=javascript>alert('success!');window.location.href='manageAction!zhaopinlist.action';</script>");
+				.print("<script language=javascript>alert('success!');window.location.href='manageAction!recruitListPage.action';</script>");
 	}
 
 	// 跳转到更新招聘页面
-	public String zhaopinupdate() {
+	public String recruitUpdatePage() {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		Recruit bean = recruitDao.selectBean(" where id= "
+		Recruit recruit = recruitDao.selectBean(" where id= "
 				+ request.getParameter("id"));
-		request.setAttribute("bean", bean);
-		request.setAttribute("url", "manageAction!zhaopinupdate2.action?id="
-				+ bean.getId());
+		request.setAttribute("recruit", recruit);
+		request.setAttribute("url", "manageAction!recruitUpdate.action?id="
+				+ recruit.getId());
 		request.setAttribute("title", "招聘信息修改");
-		this.setUrl("zhaopinupdate.jsp");
+		this.setUrl("recruitUpdate.jsp");
 		return SUCCESS;
 	}
 
 	// 更新招聘操作
-	public void zhaopinupdate2() throws IOException {
+	public void recruitUpdate() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
+		String id = request.getParameter("id");
 		String info = request.getParameter("info");
 		String position = request.getParameter("position");
-		Recruit bean = recruitDao.selectBean(" where id= "
-				+ request.getParameter("id"));
+		Recruit bean = recruitDao.selectBean(" where id= " + id);
 		bean.setInfo(info);
 		bean.setPosition(position);
 		recruitDao.updateBean(bean);
@@ -714,11 +691,12 @@ public class ManageAction extends ActionSupport {
 		response.setCharacterEncoding("gbk");
 		response.setContentType("text/html; charset=gbk");
 		response.getWriter()
-				.print("<script language=javascript>alert('success!');window.location.href='manageAction!zhaopinlist.action';</script>");
+				.print("<script language=javascript>alert('success!');window.location.href='manageAction!recruitUpdatetPage.action?id="
+						+ id + "';</script>");
 	}
 
 	// 删除招聘操作
-	public void zhaopindelete() throws IOException {
+	public void recruitDelete() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Recruit bean = recruitDao.selectBean(" where id= "
 				+ request.getParameter("id"));
@@ -728,48 +706,39 @@ public class ManageAction extends ActionSupport {
 		response.setCharacterEncoding("gbk");
 		response.setContentType("text/html; charset=gbk");
 		response.getWriter()
-				.print("<script language=javascript>alert('success!');window.location.href='manageAction!zhaopinlist.action';</script>");
+				.print("<script language=javascript>alert('success!');window.location.href='manageAction!recruitListPage.action';</script>");
 	}
 
 	// 跳转到查看招聘页面
-	public String zhaopinupdate3() {
+	public String recruitDetailPage() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Recruit bean = recruitDao.selectBean(" where id= "
 				+ request.getParameter("id"));
-		request.setAttribute("bean", bean);
-		request.setAttribute("url", "manageAction!zhaopinupdate2.action?id="
+		request.setAttribute("recruit", bean);
+		request.setAttribute("url", "manageAction!recruitDetail.action?id="
 				+ bean.getId());
 		request.setAttribute("title", "招聘信息查看");
-		this.setUrl("zhaopinupdate3.jsp");
+		this.setUrl("recruitDetail.jsp");
 		return SUCCESS;
 	}
 
 	// 推荐招聘操作
-	public void zhaopindelete2() throws IOException {
+	public void recruitRecommendChange() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Recruit bean = recruitDao.selectBean(" where id= "
 				+ request.getParameter("id"));
-		bean.setIs_recommend("推荐");
+		String flag = request.getParameter("flag");
+		if ("0".equals(flag)) {
+			bean.setIs_recommend("推荐");
+		} else if ("1".equals(flag)) {
+			bean.setIs_recommend("不推荐");
+		}
 		recruitDao.updateBean(bean);
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("gbk");
 		response.setContentType("text/html; charset=gbk");
 		response.getWriter()
-				.print("<script language=javascript>alert('success!');window.location.href='manageAction!zhaopinlist.action';</script>");
-	}
-
-	// 取消推荐招聘操作
-	public void zhaopindelete3() throws IOException {
-		HttpServletRequest request = ServletActionContext.getRequest();
-		Recruit bean = recruitDao.selectBean(" where id= "
-				+ request.getParameter("id"));
-		bean.setIs_recommend("未推荐");
-		recruitDao.updateBean(bean);
-		HttpServletResponse response = ServletActionContext.getResponse();
-		response.setCharacterEncoding("gbk");
-		response.setContentType("text/html; charset=gbk");
-		response.getWriter()
-				.print("<script language=javascript>alert('success!');window.location.href='manageAction!zhaopinlist.action';</script>");
+				.print("<script language=javascript>alert('success!');window.location.href='manageAction!recruitListPage.action';</script>");
 	}
 
 	private MessageDao messageDao;
@@ -783,7 +752,7 @@ public class ManageAction extends ActionSupport {
 	}
 
 	// 留言反馈列表
-	public String messagelist() {
+	public String messageListPage() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 
 		StringBuffer sb = new StringBuffer();
@@ -799,21 +768,21 @@ public class ManageAction extends ActionSupport {
 		}
 		int total = messageDao.selectBeanCount(where.replaceAll(
 				" order by id desc ", ""));
-		request.setAttribute("list", messageDao.selectBeanList(
+		request.setAttribute("messageList", messageDao.selectBeanList(
 				(currentpage - 1) * pagesize, pagesize, where));
 		request.setAttribute("pagerinfo", Pager.getPagerNormal(total, pagesize,
-				currentpage, "manageAction!messagelist.action", "共有" + total
-						+ "条记录"));
-		request.setAttribute("url", "manageAction!messagelist.action");
+				currentpage, "manageAction!messageListPage.action", "共有"
+						+ total + "条记录"));
+		request.setAttribute("url", "manageAction!messageListPage.action");
 		request.setAttribute("url2", "manageAction!message");
 		request.setAttribute("title", "留言反馈管理");
-		this.setUrl("messagelist.jsp");
+		this.setUrl("messageList.jsp");
 		return SUCCESS;
 
 	}
 
 	// 删除留言反馈操作
-	public void messagedelete() throws IOException {
+	public void messageDelete() throws IOException {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Message bean = messageDao.selectBean(" where id= "
 				+ request.getParameter("id"));
@@ -823,20 +792,200 @@ public class ManageAction extends ActionSupport {
 		response.setCharacterEncoding("gbk");
 		response.setContentType("text/html; charset=gbk");
 		response.getWriter()
-				.print("<script language=javascript>alert('success!');window.location.href='manageAction!messagelist.action';</script>");
+				.print("<script language=javascript>alert('success!');window.location.href='manageAction!messageListPage.action';</script>");
 	}
 
 	// 跳转到查看留言反馈页面
-	public String messageupdate3() {
+	public String messageDetailPage() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		Message bean = messageDao.selectBean(" where id= "
 				+ request.getParameter("id"));
-		request.setAttribute("bean", bean);
-		request.setAttribute("url", "manageAction!messageupdate2.action?id="
+		request.setAttribute("message", bean);
+		request.setAttribute("url", "manageAction!messageDetail.action?id="
 				+ bean.getId());
 		request.setAttribute("title", "留言反馈信息查看");
-		this.setUrl("messageupdate3.jsp");
+		this.setUrl("messageDetail.jsp");
 		return SUCCESS;
+	}
+
+	private ServiceDao serviceDao;
+
+	public ServiceDao getServiceDao() {
+		return serviceDao;
+	}
+
+	public void setServiceDao(ServiceDao serviceDao) {
+		this.serviceDao = serviceDao;
+	}
+
+	// 网点列表
+	public String serviceListPage() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+
+		String name = request.getParameter("name");
+
+		StringBuffer sb = new StringBuffer();
+		sb.append(" where ");
+
+		if (name != null && !"".equals(name)) {
+
+			sb.append("name like '%" + name + "%'");
+			sb.append(" and ");
+			request.setAttribute("name", name);
+		}
+
+		sb.append("   1=1 order by id desc ");
+		String where = sb.toString();
+
+		int currentpage = 1;
+		int pagesize = 10;
+		if (request.getParameter("pagenum") != null) {
+			currentpage = Integer.parseInt(request.getParameter("pagenum"));
+		}
+		int total = serviceDao.selectBeanCount(where.replaceAll(
+				" order by id desc ", ""));
+		request.setAttribute("serviceList", serviceDao.selectBeanList(
+				(currentpage - 1) * pagesize, pagesize, where));
+		request.setAttribute("pagerinfo", Pager.getPagerNormal(total, pagesize,
+				currentpage, "manageAction!serviceListPage.action", "共有"
+						+ total + "条记录"));
+		request.setAttribute("url", "manageAction!serviceListPage.action");
+		request.setAttribute("url2", "manageAction!service");
+		request.setAttribute("title", "网点管理");
+		this.setUrl("serviceList.jsp");
+		return SUCCESS;
+
+	}
+
+	// 跳转到添加网点页面
+	public String serviceAddPage() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		request.setAttribute("url", "manageAction!serviceAdd.action");
+		request.setAttribute("title", "网点添加");
+		this.setUrl("serviceAdd.jsp");
+		return SUCCESS;
+	}
+
+	// 添加网点信息
+	public void serviceAdd() throws IOException {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String fax = request.getParameter("fax");
+		String tel = request.getParameter("tel");
+		String address = request.getParameter("address");
+		String contact = request.getParameter("contact");
+		String phone = request.getParameter("phone");
+		String postcode = request.getParameter("postcode");
+		String mailbox = request.getParameter("mailbox");
+		String name = request.getParameter("name");
+
+		Service bean = new Service();
+
+		bean.setFax(fax);
+		bean.setTel(tel);
+		bean.setAddress(address);
+		bean.setContact(contact);
+		bean.setPhone(phone);
+		bean.setPostcode(postcode);
+		bean.setMailbox(mailbox);
+		bean.setName(name);
+
+		serviceDao.insertBean(bean);
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setCharacterEncoding("gbk");
+		response.setContentType("text/html; charset=gbk");
+		response.getWriter()
+				.print("<script language=javascript>alert('success!');window.location.href='manageAction!serviceListPage.action';</script>");
+	}
+
+	// 跳转到查看产品页面
+	public String serviceDetailPage() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		Service service = serviceDao.selectBean(" where id= "
+				+ request.getParameter("id"));
+		request.setAttribute("service", service);
+		request.setAttribute("url", "manageAction!serviceUpdatePage.action?id="
+				+ service.getId());
+		request.setAttribute("title", "产品信息查看");
+		this.setUrl("serviceDetail.jsp");
+		return SUCCESS;
+	}
+
+	// 更新网点页面
+	public String serviceUpdatePage() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		Service service = serviceDao.selectBean(" where id= "
+				+ request.getParameter("id"));
+		request.setAttribute("service", service);
+		request.setAttribute("url", "manageAction!serviceUpdate.action?id="
+				+ service.getId());
+		request.setAttribute("title", "网点信息修改");
+		this.setUrl("serviceUpdate.jsp");
+		return SUCCESS;
+	}
+
+	// 更新网点信息
+	public void serviceUpdate() throws IOException {
+		HttpServletRequest request = ServletActionContext.getRequest();
+
+		String id = request.getParameter("id");
+
+		String fax = request.getParameter("fax");
+		String tel = request.getParameter("tel");
+		String address = request.getParameter("address");
+		String contact = request.getParameter("contact");
+		String phone = request.getParameter("phone");
+		String postcode = request.getParameter("postcode");
+		String mailbox = request.getParameter("mailbox");
+		String name = request.getParameter("name");
+
+		Service bean = serviceDao.selectBean(" where id= " + id);
+
+		bean.setFax(fax);
+		bean.setTel(tel);
+		bean.setAddress(address);
+		bean.setContact(contact);
+		bean.setPhone(phone);
+		bean.setPostcode(postcode);
+		bean.setMailbox(mailbox);
+		bean.setName(name);
+
+		serviceDao.updateBean(bean);
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setCharacterEncoding("gbk");
+		response.setContentType("text/html; charset=gbk");
+		response.getWriter()
+				.print("<script language=javascript>alert('success!');window.location.href='manageAction!serviceUpdatePage.action?id="
+						+ id + "';</script>");
+	}
+
+	public void setUploadfile(File uploadfile) {
+		this.uploadfile = uploadfile;
+	}
+
+	private CompanyDao companyDao;
+
+	public CompanyDao getCompanyDao() {
+		return companyDao;
+	}
+
+	public void setCompanyDao(CompanyDao companyDao) {
+		this.companyDao = companyDao;
+	}
+
+	public NewsDao getNewsDao() {
+		return newsDao;
+	}
+
+	public void setNewsDao(NewsDao newsDao) {
+		this.newsDao = newsDao;
+	}
+
+	public RecruitDao getRecruitDao() {
+		return recruitDao;
+	}
+
+	public void setRecruitDao(RecruitDao recruitDao) {
+		this.recruitDao = recruitDao;
 	}
 
 }

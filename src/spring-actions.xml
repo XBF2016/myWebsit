@@ -17,6 +17,7 @@
 		<property name="productDao"><ref bean="productDao" /></property>
 		<property name="newsDao"><ref bean="newsDao" /></property>
 		<property name="recruitDao"><ref bean="recruitDao" /></property>
+		<property name="serviceDao"><ref bean="serviceDao" /></property>
 		<property name="messageDao"><ref bean="messageDao" /></property>
 		
 	</bean>

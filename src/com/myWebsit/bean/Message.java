@@ -1,34 +1,38 @@
 package com.myWebsit.bean;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 //留言反馈
 @Entity
-@Table(name="t_Message")
+@Table(name = "t_Message")
 public class Message {
 
 	@Id
 	@GeneratedValue
 	private int id;
-	
-	private String name;//姓名
-	
-	private String mailbox;//邮件地址
-	
-	private String tel;//电话
-	
-	private String fax;//传真
-	
-	private String address;//地址
-	
-	private String postcode;//邮编
-	
-	@Column(name="content", columnDefinition="TEXT")
-	private String content;//留言内容
-	
-	private String time;//留言时间
+
+	private String name;// 姓名
+
+	private String mailbox;// 邮件地址
+
+	private String tel;// 电话
+
+	private String phone;// 手机
+
+	private String fax;// 传真
+
+	private String address;// 地址
+
+	private String postcode;// 邮编
+
+	@Column(name = "content", columnDefinition = "TEXT")
+	private String content;// 留言内容
+
+	private String time;// 留言时间
 
 	public int getId() {
 		return id;
@@ -101,5 +105,13 @@ public class Message {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
 }

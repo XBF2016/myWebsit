@@ -59,49 +59,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <fieldset>
             
                <p>
-              <label>姓名</label>
-              <input class="text-input small-input" type="text"  name="xingming" value="${bean.xingming }" disabled="disabled" />
+              <label>职位名</label>
+              <input class="text-input small-input" type="text"  name="position"  />
             </p>
-            
-             <p>
-              <label>邮件地址</label>
-              <input class="text-input small-input" type="text"  name="youjianl" value="${bean.youjianl }" disabled="disabled" />
-            </p>
-            
-            
-             <p>
-              <label>电话</label>
-              <input class="text-input small-input" type="text"  name="dianhua" value="${bean.dianhua }" disabled="disabled" />
-            </p>
-            
-            
-             <p>
-              <label>传真</label>
-              <input class="text-input small-input" type="text"  name="chuanzhen" value="${bean.chuanzhen }" disabled="disabled" />
-            </p>
-            
-            
-             <p>
-              <label>地址</label>
-              <input class="text-input small-input" type="text"  name="dizhi" value="${bean.dizhi }" disabled="disabled" />
-            </p>
-            
-            
-             <p>
-              <label>邮编</label>
-              <input class="text-input small-input" type="text"  name="youbian" value="${bean.youbian }" disabled="disabled" />
-            </p>
-            
-            
-            
             
             
            
    
             
              <p>
-              <label>留言内容</label>
-              <textarea  name="neirong" cols="79" rows="15" disabled="disabled">${bean.neirong }</textarea>
+              <label>职位介绍</label>
+              <textarea  name="info" cols="79" rows="15"></textarea>
             </p>
             
             
@@ -114,7 +82,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
             
             <p>
-            
+              <input class="button" type="submit" value="提交" />
+              
+              &nbsp;&nbsp;&nbsp;
               
              <input class="button" type="button" value="返回"  onclick="javascript:history.go(-1);" />
             </p>

@@ -15,6 +15,7 @@ CREATE TABLE `t_message` (
   `id` int(11) NOT NULL auto_increment COMMENT '主键',
   `fax` varchar(255) default NULL COMMENT '传真',
   `tel` varchar(255) default NULL COMMENT '电话',
+  `phone` varchar(255) default NULL COMMENT '手机',
   `address` varchar(255) default NULL COMMENT '地址',
   `content` text COMMENT '留言内容',
   `time` varchar(255) default NULL COMMENT '时间',
