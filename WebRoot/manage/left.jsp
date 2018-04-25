@@ -52,7 +52,7 @@
           </ul>
         </li>
         
-         <li> <a href="#" class="nav-top-item">网点管理</a>
+         <li> <a href="#" class="nav-top-item">网点信息管理</a>
           <ul>
             <li><a href="manageAction!serviceListPage.action">网点信息管理</a></li>
         
