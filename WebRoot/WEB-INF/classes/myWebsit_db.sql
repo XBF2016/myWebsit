@@ -16,12 +16,12 @@ CREATE TABLE `t_message` (
   `fax` varchar(255) default NULL COMMENT '传真',
   `tel` varchar(255) default NULL COMMENT '电话',
   `phone` varchar(255) default NULL COMMENT '手机',
-  `address` varchar(255) default NULL COMMENT '地址',
+  `address` varchar(255) default NULL COMMENT '联系地址',
   `content` text COMMENT '留言内容',
-  `time` varchar(255) default NULL COMMENT '时间',
+  `time` varchar(255) default NULL COMMENT '创建时间',
   `name` varchar(255) default NULL COMMENT '姓名',
   `postcode` varchar(255) default NULL COMMENT '邮编',
-  `mailbox` varchar(255) default NULL COMMENT '邮件',
+  `mailbox` varchar(255) default NULL COMMENT '邮箱',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -40,10 +40,10 @@ CREATE TABLE `t_pic` (
 -- ----------------------------
 CREATE TABLE `t_product` (
   `id` int(11) NOT NULL auto_increment COMMENT '主键',
-  `created_time` varchar(255) default NULL COMMENT '添加时间',
-  `info` varchar(255) default NULL COMMENT '介绍',
-  `path` varchar(255) default NULL COMMENT '产品图片路径',
-  `product_name` varchar(255) default NULL COMMENT '产品名',
+  `created_time` varchar(255) default NULL COMMENT '创建时间',
+  `info` varchar(255) default NULL COMMENT '产品介绍',
+  `path` varchar(255) default NULL COMMENT '图片路径',
+  `product_name` varchar(255) default NULL COMMENT '产品名称',
   `is_recommend` varchar(255) default NULL COMMENT '是否推荐',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
