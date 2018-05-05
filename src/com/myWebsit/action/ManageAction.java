@@ -77,7 +77,7 @@ public class ManageAction extends ActionSupport {
 			response.setCharacterEncoding("gbk");
 			response.setContentType("text/html; charset=gbk");
 			response.getWriter()
-					.print("<script language=javascript>alert('用户名或者密码错误');window.location.href='login.jsp';</script>");
+					.print("<script language=javascript>alert('用户名或者密码错误');window.location.href='indexAction!loginPage.action';</script>");
 		}
 		return null;
 	}

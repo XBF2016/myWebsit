@@ -74,7 +74,7 @@ function register(){
          
           <tr>
             <th height="35" colspan="2" scope="row" class=""><input class="button" type="submit" value="登 录" />  &nbsp;&nbsp;
-            <a href="../">返回首页</a>
+            <a href="./">返回首页</a>
             </th>
 		</tr>
         </table>
