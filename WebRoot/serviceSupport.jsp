@@ -36,10 +36,10 @@ ddsmoothmenu.init({
     <li><img src="images/logo.jpg" id="logoImg"></li>
      <li><a href="index.action" title="公司主页" ><span>公司主页</span></a></li>
       <li><a href="indexAction!aboutUsPage.action" title="企业介绍" ><span>企业介绍</span></a> </li>
-      <li><a href="indexAction!productListPage.action" title="产品中心" id="menu_selected"><span>产品中心</span></a></li>
+      <li><a href="indexAction!productListPage.action" title="产品中心" ><span>产品中心</span></a></li>
       <li><a href="indexAction!newsListPage.action" title="新闻中心"><span>新闻中心</span></a></li>
       <li><a href="indexAction!recruitListPage.action" title="招聘信息"><span>招聘信息</span></a></li>
-      <li><a href="indexAction!serviceSupportPage.action" title="服务支持"><span>服务支持</span></a></li>
+      <li><a href="indexAction!serviceSupportPage.action" title="服务支持" id="menu_selected"><span>服务支持</span></a></li>
       <li><a href="indexAction!feedbackPage.action" title="留言反馈"><span>留言反馈</span></a></li>
       <li><a href="indexAction!loginPage.action"  ><span>管理员登录</span></a></li>
     </ul>
