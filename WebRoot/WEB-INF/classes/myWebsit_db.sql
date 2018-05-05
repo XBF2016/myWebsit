@@ -30,7 +30,7 @@ CREATE TABLE `t_message` (
 -- ----------------------------
 CREATE TABLE `t_pic` (
   `id` int(11) NOT NULL auto_increment COMMENT '主键',
-  `info` varchar(255) default NULL COMMENT '图片说明',
+  `info` varchar(255) default NULL COMMENT '图片介绍',
   `path` varchar(255) default NULL COMMENT '图片路径',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -88,8 +88,8 @@ CREATE TABLE `t_service` (
 CREATE TABLE `t_user` (
   `id` int(11) NOT NULL auto_increment COMMENT '主键',
   `password` varchar(255) default NULL COMMENT '密码',
-  `role` int(11) NOT NULL default '0' COMMENT '用户角色',
-  `username` varchar(255) default NULL COMMENT '用户名‘',
+  `role` int(11) NOT NULL default '0' COMMENT '角色',
+  `username` varchar(255) default NULL COMMENT '用户名',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -100,7 +100,7 @@ CREATE TABLE `t_news` (
   `id` int(11) NOT NULL auto_increment COMMENT '主键',
   `title` varchar(255) default NULL COMMENT '标题',
   `picPath` varchar(255) default NULL COMMENT '图片路径',
-  `created_time` varchar(255) default NULL COMMENT '添加时间',
+  `created_time` varchar(255) default NULL COMMENT '创建时间',
   `content` text COMMENT '内容',
   `is_recommend` varchar(255) default NULL COMMENT '是否推荐',
   PRIMARY KEY  (`id`)
@@ -111,9 +111,9 @@ CREATE TABLE `t_news` (
 -- ----------------------------
 CREATE TABLE `t_recruit` (
   `id` int(11) NOT NULL auto_increment COMMENT '主键',
-  `created_time` varchar(255) default NULL COMMENT '添加时间',
+  `created_time` varchar(255) default NULL COMMENT '创建时间',
   `info` text COMMENT '介绍',
-  `is_recommend` varchar(255) default NULL COMMENT '推荐',
+  `is_recommend` varchar(255) default NULL COMMENT '是否推荐',
   `position` varchar(255) default NULL COMMENT '职位名称',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
