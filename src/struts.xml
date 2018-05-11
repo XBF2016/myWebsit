@@ -14,20 +14,15 @@
                               <interceptor-ref name="defaultStack"></interceptor-ref>
                        </interceptor-stack>
               </interceptors>
-              
               <!-- 指定默认拦截器栈 -->
               <default-interceptor-ref name="newDefaultStack" ></default-interceptor-ref>
-              
               <!-- 配置全局result -->
               <global-results>
                   <result name="authError">/manage/login.jsp</result>
               </global-results>
     </package>
 
-	
-
 	 <package name="index" namespace="/"  extends="new-struts-default">
-	 
 	 	 <action name="index" method="index" class="indexAction" >
 		   <result name="success" >index.jsp</result>
         </action>
@@ -37,16 +32,12 @@
 		   <result name="redirect" type="redirect">${url}</result>
 		   
         </action>
-        
         <action name="manageAction_*" class="manageAction" method="{1}">
 		   		   <result name="passwordChange">passwordChange.jsp</result> 
 			<result type="dispatcher">${url}</result>
 			<result name="redirect" type="redirect">${url}</result>
 			<interceptor-ref name="newDefaultStack"></interceptor-ref>
 		</action>
-	 
     </package>
-    
-	
 
 </struts>

@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </p>
 
           <p>
-              <label>产品图片</label>
+              <label>新闻图片</label>
              <img src="<%=basePath %>uploadfile/${news.picPath }"  height="150" />
               
               </p>

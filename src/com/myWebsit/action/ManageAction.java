@@ -905,7 +905,7 @@ public class ManageAction extends ActionSupport {
 		request.setAttribute("service", service);
 		request.setAttribute("url", "manageAction!serviceUpdatePage.action?id="
 				+ service.getId());
-		request.setAttribute("title", "产品信息查看");
+		request.setAttribute("title", "网点信息查看");
 		this.setUrl("serviceDetail.jsp");
 		return SUCCESS;
 	}
