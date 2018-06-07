@@ -73,7 +73,7 @@ $(function(){
 <p style="LINE-HEIGHT: 25px">
 <input  type="button" value="返回"  onclick="javascript:history.go(-1);" /><br/>
 <h1 style="color: #008aff">${service.name }</h1>
-          <p><span>地址: </span>${service.address }<br />
+          <p style="font-size:20px"><span>地址: </span>${service.address }<br />
           <span>邮编: </span>${service.postcode }<br />
           <span>联系人: </span>${service.contact }<br />
           <span>电话: </span>${service.tel }<br />

@@ -104,7 +104,7 @@ function check()
 }
 </script>
       <form method="post" name="guestbook" id="guestbook" onSubmit="return check()" action="indexAction!feedbackAdd.action">
-      <dl class="clearfix">
+      <dl style="font-size: 20px" class="clearfix">
       <dd><label>您的姓名:&nbsp;&nbsp;</label><input name="Guest_Name" type="text" id="Guest_Name" /><span>*</span></dd>
       <dd><label>邮件地址:&nbsp;&nbsp;</label><input name="Guest_Email" type="text" id="Guest_Email" /><span>*</span></dd>
       <dd><label>电 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话:&nbsp;&nbsp;</label><input name="Guest_TEL" type="text" id="Guest_TEL" /></dd>

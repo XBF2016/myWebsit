@@ -73,7 +73,7 @@ $(function(){
 <p style="LINE-HEIGHT: 25px">
 <input  type="button" value="返回"  onclick="javascript:history.go(-1);" /><br/>
 <h1 style="color: #008aff">${recruit.position }</h1>
-<p style="font-size:16px;width: 800px;padding-left: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${recruit.info}</p>
+<p style="font-size:20px;width: 800px;padding-left: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${recruit.info}</p>
 
 </p>
       </div>

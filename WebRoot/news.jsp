@@ -74,7 +74,7 @@ $(function(){
 <input  type="button" value="返回"  onclick="javascript:history.go(-1);" /><br/>
 <h1 style="color: #008aff">${news.title }</h1>
 <img src="<%=basePath %>uploadfile/${news.picPath}" style="max-width: 800px;padding-left: 20px;"/>
-<p style="font-size:16px;width: 800px;padding-left: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${news.content }</p>
+<p style="font-size:20px;width: 800px;padding-left: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${news.content }</p>
 
 </p>
       </div>

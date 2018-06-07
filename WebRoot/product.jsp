@@ -75,7 +75,7 @@ $(function(){
 <input  type="button" value="返回"  onclick="javascript:history.go(-1);" /><br/>
 <h1 style="color: #008aff">${product.product_name }</h1>
 <img src="uploadfile/${product.path }" style="max-width: 800px;padding-left: 20px;" /><br/>
-<p style="font-size:16px;width: 800px;padding-left: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${product.info }</p>
+<p style="font-size:20px;width: 800px;padding-left: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${product.info }</p>
 </p>
       </div>
     </div>

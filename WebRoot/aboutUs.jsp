@@ -74,7 +74,7 @@ $(function(){
     <div class="page-right">
       <div class="site-nav"><span>当前位置 : </span><a href=".">公司主页</a> &gt;&gt; <a href="indexmethod!single.action" title="企业介绍">企业介绍</a></div>
       <div class="page-single">
-<p style="LINE-HEIGHT: 25px">
+<p style="font-size:20px;LINE-HEIGHT: 25px">
 ${company.info }
 </p>
       </div>
