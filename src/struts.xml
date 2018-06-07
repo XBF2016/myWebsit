@@ -23,21 +23,24 @@
     </package>
 
 	 <package name="index" namespace="/"  extends="new-struts-default">
+	 
 	 	 <action name="index" method="index" class="indexAction" >
 		   <result name="success" >index.jsp</result>
         </action>
+        
         <action name="indexAction_*"  class="indexAction" method="{1}">
         <result name="loginPage">manage/login.jsp</result> 
            <result type="dispatcher">${url}</result>
 		   <result name="redirect" type="redirect">${url}</result>
-		   
         </action>
+        
         <action name="manageAction_*" class="manageAction" method="{1}">
 		   		   <result name="passwordChange">passwordChange.jsp</result> 
 			<result type="dispatcher">${url}</result>
 			<result name="redirect" type="redirect">${url}</result>
 			<interceptor-ref name="newDefaultStack"></interceptor-ref>
 		</action>
+		
     </package>
 
 </struts>
